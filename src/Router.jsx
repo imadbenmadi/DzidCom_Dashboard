@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Home from "./Components/Home/Home.jsx";
 import App from "./App";
-import Default from "./Default";
 import Login from "./Components/Auth/Login/Login";
 
 import Not_Found from "./Components/Not_Found";
@@ -28,7 +27,6 @@ const routes = createBrowserRouter([
                 element: <Login />,
                 errorElement: <ErrorElement />,
             },
-            
         ],
     },
 

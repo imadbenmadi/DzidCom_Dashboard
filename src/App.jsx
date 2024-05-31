@@ -5,16 +5,12 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import Logo from "../public/Logo.png";
 import { useAppContext } from "./AppContext";
+import NavBar from "./Components/NavBar/NavBar";
 function App() {
     const Navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const { set_Auth, isAuth, store_login } = useAppContext();
-    // useEffect(() => {
-    //     if (!isAuth)
-    //         // Navigate("/Login")
-    //         Navigate("/Home")
-    //     else Navigate("/Home")
-    // },[isAuth])
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -113,7 +109,15 @@ function App() {
                 <span className="loader"></span>
             </div>
         );
-    } else return <Outlet />;
+    } else
+        return (
+            <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
+                <NavBar />
+                <div className=" pt-[60px]">
+                    <Outlet />
+                </div>
+            </div>
+        );
 }
 
 export default App;
