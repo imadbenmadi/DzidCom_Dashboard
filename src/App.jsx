@@ -7,14 +7,14 @@ import Logo from "../public/Logo.png";
 import { useAppContext } from "./AppContext";
 function App() {
     const Navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     // const [userType, setUserType] = useState(null);
     const { set_Auth, isAuth, store_login } = useAppContext();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3000/Dashboard/Check_Auth",
+                    "http://localhost:3000/Admin_CheckAuth",
                     {
                         withCredentials: true,
                         validateStatus: () => true,
@@ -25,8 +25,6 @@ function App() {
                     response.data
                 );
                 if (response.status == 200) {
-                    // store_login(response.data.userId, response.data.userType);
-                    // setUserType(response.data.userType);
                     set_Auth(true);
                 } else {
                     set_Auth(false);
