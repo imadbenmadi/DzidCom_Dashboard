@@ -7,9 +7,14 @@ import Logo from "../public/Logo.png";
 import { useAppContext } from "./AppContext";
 function App() {
     const Navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    // const [userType, setUserType] = useState(null);
+    const [loading, setLoading] = useState(true);
     const { set_Auth, isAuth, store_login } = useAppContext();
+    // useEffect(() => {
+    //     if (!isAuth)
+    //         // Navigate("/Login")
+    //         Navigate("/Home")
+    //     else Navigate("/Home")
+    // },[isAuth])
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -26,12 +31,15 @@ function App() {
                 );
                 if (response.status == 200) {
                     set_Auth(true);
+                    Navigate("/Home");
                 } else {
                     set_Auth(false);
+                    Navigate("/Login");
                 }
             } catch (error) {
                 // console.log("error from app.jsx check_auth :", error);
                 set_Auth(false);
+                Navigate("/Login");
             }
         };
         const fetch_images = () => {
@@ -89,8 +97,10 @@ function App() {
             });
         };
 
-        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
+        // Promise.all([fetch_fonts(), fetch_images(), fetchData()]);
+        Promise.all([fetchData()])
             .then(() => {
+                console.log("Done");
                 setLoading(false);
             })
             .catch(() => {

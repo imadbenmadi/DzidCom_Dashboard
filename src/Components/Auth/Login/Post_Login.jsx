@@ -2,13 +2,17 @@ import Swal from "sweetalert2";
 import Axios from "axios";
 async function handleLogin(values, { setSubmitting }) {
     try {
-        let response = await Axios.post("http://localhost:3000/Login", values, {
-            withCredentials: true,
-            validateStatus: () => true,
-        });
+        let response = await Axios.post(
+            "http://localhost:3000/Admin_Login",
+            values,
+            {
+                withCredentials: true,
+                validateStatus: () => true,
+            }
+        );
 
         if (response.status == 200) {
-            window.location.href = `/Home`;
+            window.location.href = `/`;
         } else if (response.status == 401) {
             setSubmitting(false);
             Swal.fire("Error!", "Username or Password isn't correct", "error");

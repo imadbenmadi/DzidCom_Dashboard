@@ -4,14 +4,14 @@ import { useNavigate } from "react-router";
 import { useAppContext } from "./AppContext";
 
 function Default() {
-    const { isAuth, userType, userId } = useAppContext();
-    console.log("data from default", isAuth, userType);
+    const { isAuth } = useAppContext();
+    console.log("data from default", isAuth);
     const Navigate = useNavigate();
     useEffect(() => {
         if (!isAuth) Navigate("/Login");
         else if (isAuth) {
             Navigate(`/Home`);
         } else Navigate("/Login");
-    }, []);
+    }, [isAuth]);
 }
 export default Default;
