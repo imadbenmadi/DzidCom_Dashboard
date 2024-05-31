@@ -8,14 +8,10 @@ function Default() {
     console.log("data from default", isAuth, userType);
     const Navigate = useNavigate();
     useEffect(() => {
-        if (!isAuth || !userType) Navigate("/Home");
-        else if (isAuth && userType == "client") {
-            // Navigate(`/Client/${userId}`);
-            Navigate(`/Client`);
-        } else if (isAuth && userType == "freelancer") {
-            // Navigate(`/Freelancer/${userId}`);
-            Navigate(`/Freelancer`);
-        } else Navigate("/Home");
+        if (!isAuth) Navigate("/Login");
+        else if (isAuth) {
+            Navigate(`/Home`);
+        } else Navigate("/Login");
     }, []);
 }
 export default Default;
