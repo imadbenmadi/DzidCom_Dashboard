@@ -110,15 +110,6 @@ function Login() {
                                 </Form>
                             )}
                         </Formik>
-                        <div className="pt-6 text-sm font-semibold text-gray_v text-center">
-                            Don’t have an account?{" "}
-                            <Link
-                                to={"/Register"}
-                                className=" underline text-perpol_v"
-                            >
-                                Sign up
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </div>

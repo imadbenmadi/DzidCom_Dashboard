@@ -18,7 +18,7 @@ function App() {
                     "http://localhost:3000/Admin_CheckAuth",
                     {
                         withCredentials: true,
-                        validateStatus: () => true,
+                        // validateStatus: () => true,
                     }
                 );
                 console.log(
@@ -92,9 +92,8 @@ function App() {
                     });
             });
         };
-
-        // Promise.all([fetch_fonts(), fetch_images(), fetchData()]);
-        Promise.all([fetchData()])
+        // Promise.all([fetchData()]);
+        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
             .then(() => {
                 console.log("Done");
                 setLoading(false);

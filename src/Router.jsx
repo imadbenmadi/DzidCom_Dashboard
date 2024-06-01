@@ -22,12 +22,12 @@ const routes = createBrowserRouter([
                 element: <Home />,
                 errorElement: <ErrorElement />,
             },
-            {
-                path: "/Login",
-                element: <Login />,
-                errorElement: <ErrorElement />,
-            },
         ],
+    },
+    {
+        path: "/Login",
+        element: <Login />,
+        errorElement: <ErrorElement />,
     },
 
     {
