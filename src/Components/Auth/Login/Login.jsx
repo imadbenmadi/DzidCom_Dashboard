@@ -5,6 +5,7 @@ import handleLogin from "./Post_Login";
 import { useNavigate } from "react-router";
 import { useAppContext } from "../../../AppContext";
 import { useState, useEffect } from "react";
+import Logo from '../../../../public/Logo.png'
 function Login() {
     const Navigate = useNavigate();
     const [loading, setLoading] = useState(true);
@@ -78,7 +79,8 @@ function Login() {
     }, []);
     if (loading) {
         return (
-            <div className=" w-screen h-screen flex items-center justify-center">
+            <div className=" w-screen h-screen flex flex-col items-center justify-center">
+                <img src={Logo} alt="" />
                 <span className="loader"></span>
             </div>
         );
