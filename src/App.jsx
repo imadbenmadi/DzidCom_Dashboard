@@ -110,9 +110,11 @@ function App() {
         );
     } else
         return (
-            <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
-                <NavBar />
-                <div className=" pt-[60px]">
+            <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden flex items-start justify-start  ">
+                <div className="  ">
+                    <NavBar />
+                </div>
+                <div className=" pt-[60px] md:pt-0 ">
                     <Outlet />
                 </div>
             </div>
