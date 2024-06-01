@@ -8,6 +8,12 @@ import {
     Modifier,
 } from "draft-js";
 import "draft-js/dist/Draft.css";
+import { FaBold } from "react-icons/fa";
+import { FaItalic } from "react-icons/fa";
+import { FaUnderline } from "react-icons/fa";
+import { FaListUl } from "react-icons/fa";
+import { MdTextIncrease } from "react-icons/md";
+import { MdTextDecrease } from "react-icons/md";
 
 function DraftEditor({ initialContent }) {
     const [editorState, setEditorState] = useState(() => {
@@ -120,10 +126,10 @@ function DraftEditor({ initialContent }) {
     };
 
     return (
-        <div>
-            <div className="mb-2 space-x-2">
+        <div className=" w-full h-full flex justify-center items-center flex-col"> 
+            <div className="mb-2 flex gap-4 items-center ">
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    className="px-2 py-1 border text-white rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleInlineStyle("BOLD");
@@ -132,7 +138,7 @@ function DraftEditor({ initialContent }) {
                     Bold
                 </button>
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    className="px-2 py-1 text-white rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleInlineStyle("ITALIC");
@@ -141,7 +147,7 @@ function DraftEditor({ initialContent }) {
                     Italic
                 </button>
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    className="px-2 py-1 text-white rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleInlineStyle("UNDERLINE");
@@ -150,7 +156,7 @@ function DraftEditor({ initialContent }) {
                     Underline
                 </button>
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    className="px-2 py-1 text-white rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleBlockType("unordered-list-item");
@@ -159,7 +165,7 @@ function DraftEditor({ initialContent }) {
                     List
                 </button>
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    className="px-2 py-1 text-white rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         increaseFontSize();
@@ -168,7 +174,7 @@ function DraftEditor({ initialContent }) {
                     Increase Font Size
                 </button>
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    className="px-2 py-1 text-white rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         decreaseFontSize();

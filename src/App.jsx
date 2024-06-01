@@ -115,7 +115,7 @@ function App() {
                 <div className="  ">
                     <NavBar />
                 </div>
-                <div className=" pt-[60px] md:pt-0 ">
+                <div className=" pt-[60px] md:pt-0 w-screen md:w-[calc(100vw-210px)] ">
                     <Outlet />
                 </div>
             </div>
