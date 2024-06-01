@@ -27,7 +27,7 @@ function App() {
                 );
                 if (response.status == 200) {
                     set_Auth(true);
-                    Navigate("/Home");
+                    // Navigate("/Home");
                 } else {
                     set_Auth(false);
                     Navigate("/Login");

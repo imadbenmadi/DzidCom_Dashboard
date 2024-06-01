@@ -1,9 +1,228 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import {
+    Editor,
+    EditorState,
+    RichUtils,
+    convertToRaw,
+    convertFromRaw,
+    Modifier,
+} from "draft-js";
+import "draft-js/dist/Draft.css";
 
-function Terms() {
-  return (
-    <div>Terms</div>
-  )
+function DraftEditor({ initialContent }) {
+    const [editorState, setEditorState] = useState(() => {
+        if (initialContent) {
+            return EditorState.createWithContent(
+                convertFromRaw(JSON.parse(initialContent))
+            );
+        } else {
+            return EditorState.createEmpty();
+        }
+    });
+
+    const [currentFontSize, setCurrentFontSize] = useState(14);
+    const [currentColor, setCurrentColor] = useState("BLACK");
+
+    useEffect(() => {
+        if (!initialContent) {
+            fetch("your-server-endpoint")
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.content) {
+                        setEditorState(
+                            EditorState.createWithContent(
+                                convertFromRaw(JSON.parse(data.content))
+                            )
+                        );
+                    }
+                })
+                .catch((error) =>
+                    console.error("Error fetching initial content:", error)
+                );
+        }
+    }, [initialContent]);
+
+    const onChange = (newEditorState) => {
+        setEditorState(newEditorState);
+    };
+
+    const handleKeyCommand = (command) => {
+        const newState = RichUtils.handleKeyCommand(editorState, command);
+        if (newState) {
+            onChange(newState);
+            return "handled";
+        }
+        return "not-handled";
+    };
+
+    const toggleInlineStyle = (inlineStyle) => {
+        onChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+    };
+
+    const toggleBlockType = (blockType) => {
+        onChange(RichUtils.toggleBlockType(editorState, blockType));
+    };
+
+    const applyInlineStyle = (style) => {
+        const selection = editorState.getSelection();
+        if (!selection.isCollapsed()) {
+            const contentState = editorState.getCurrentContent();
+            const newContentState = Modifier.applyInlineStyle(
+                contentState,
+                selection,
+                style
+            );
+            const newEditorState = EditorState.push(
+                editorState,
+                newContentState,
+                "change-inline-style"
+            );
+            setEditorState(
+                EditorState.forceSelection(newEditorState, selection)
+            );
+        } else {
+            // Apply style to future text input
+            const newEditorState = RichUtils.toggleInlineStyle(
+                editorState,
+                style
+            );
+            setEditorState(newEditorState);
+        }
+    };
+
+    const increaseFontSize = () => {
+        const newFontSize = currentFontSize + 2;
+        setCurrentFontSize(newFontSize);
+        applyInlineStyle(`FONTSIZE-${newFontSize}`);
+    };
+
+    const decreaseFontSize = () => {
+        const newFontSize = Math.max(currentFontSize - 2, 2);
+        setCurrentFontSize(newFontSize);
+        applyInlineStyle(`FONTSIZE-${newFontSize}`);
+    };
+
+    const changeTextColor = (color) => {
+        setCurrentColor(color);
+        applyInlineStyle(`COLOR-${color.toUpperCase()}`);
+    };
+
+    const customStyleMap = {
+        [`FONTSIZE-12`]: { fontSize: "12px" },
+        [`FONTSIZE-14`]: { fontSize: "14px" },
+        [`FONTSIZE-16`]: { fontSize: "16px" },
+        [`FONTSIZE-18`]: { fontSize: "18px" },
+        [`FONTSIZE-20`]: { fontSize: "20px" },
+        [`COLOR-RED`]: { color: "red" },
+        [`COLOR-BLUE`]: { color: "blue" },
+        [`COLOR-GREEN`]: { color: "green" },
+        [`COLOR-BLACK`]: { color: "black" },
+    };
+
+    return (
+        <div>
+            <div className="mb-2 space-x-2">
+                <button
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        toggleInlineStyle("BOLD");
+                    }}
+                >
+                    Bold
+                </button>
+                <button
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        toggleInlineStyle("ITALIC");
+                    }}
+                >
+                    Italic
+                </button>
+                <button
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        toggleInlineStyle("UNDERLINE");
+                    }}
+                >
+                    Underline
+                </button>
+                <button
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        toggleBlockType("unordered-list-item");
+                    }}
+                >
+                    List
+                </button>
+                <button
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        increaseFontSize();
+                    }}
+                >
+                    Increase Font Size
+                </button>
+                <button
+                    className="px-2 py-1 bg-blue-500 text-white rounded"
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        decreaseFontSize();
+                    }}
+                >
+                    Decrease Font Size
+                </button>
+                <div className="inline-block px-2 py-1">
+                    <div className="flex space-x-2">
+                        <button
+                            className="px-2 py-1 bg-red-500 text-white rounded"
+                            onMouseDown={(e) => {
+                                e.preventDefault();
+                                changeTextColor("red");
+                            }}
+                        >
+                            Red
+                        </button>
+                        <button
+                            className="px-2 py-1 bg-green-500 text-white rounded"
+                            onMouseDown={(e) => {
+                                e.preventDefault();
+                                changeTextColor("green");
+                            }}
+                        >
+                            Green
+                        </button>
+                        <button
+                            className="px-2 py-1 bg-black text-white rounded"
+                            onMouseDown={(e) => {
+                                e.preventDefault();
+                                changeTextColor("black");
+                            }}
+                        >
+                            Black
+                        </button>
+                    </div>
+                    <input
+                        type="color"
+                        className="ml-2"
+                        onChange={(e) => changeTextColor(e.target.value)}
+                    />
+                </div>
+            </div>
+            <div className="p-2 w-[80%] h-[80vh] custom-overflow  overflow-auto border shadow-sm mx-auto rounded">
+                <Editor
+                    editorState={editorState}
+                    onChange={onChange}
+                    handleKeyCommand={handleKeyCommand}
+                    customStyleMap={customStyleMap}
+                />
+            </div>
+        </div>
+    );
 }
 
-export default Terms
+export default DraftEditor;

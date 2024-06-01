@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Home from "./Components/Home/Home.jsx";
 import App from "./App";
+import Default from "./Default";
 import Login from "./Components/Auth/Login/Login";
 
 import Users from "./Components/Users/Users";
@@ -29,11 +30,11 @@ const routes = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
-            // {
-            //     index: true,
-            //     element: <Default />,
-            //     errorElement: <ErrorElement />,
-            // },
+            {
+                index: true,
+                element: <Default />,
+                errorElement: <ErrorElement />,
+            },
             {
                 path: "/Home",
                 element: <Home />,
