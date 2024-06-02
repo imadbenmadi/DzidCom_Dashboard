@@ -9,47 +9,15 @@ import {
     Modifier,
 } from "draft-js";
 import "draft-js/dist/Draft.css";
-import { FaBold, FaInstagram } from "react-icons/fa";
+import { FaBold } from "react-icons/fa";
 import { FaItalic } from "react-icons/fa";
 import { FaUnderline } from "react-icons/fa";
 import { FaListUl } from "react-icons/fa";
 import { MdTextIncrease } from "react-icons/md";
 import { MdTextDecrease } from "react-icons/md";
 import { MdColorLens } from "react-icons/md";
-import axios from "axios";
-import Swal from "sweetalert2";
-function Terms({ initialContent }) {
-    const [Loading, setLoading] = useState(false);
-    const handleEditePrivacy = async () => {
-        const contentState = editorState.getCurrentContent();
-        const rawContent = JSON.stringify(convertToRaw(contentState));
 
-        setLoading(true);
-
-        try {
-            const response = await axios.put(
-                "http://localhost:3000/privacy",
-                {
-                    Content: rawContent,
-                },
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            console.log("response from Edite Privacy :", response.data);
-            if (response.status == 200) {
-                Swal.fire("Done", `${response.data.message} `, "success");
-            } else {
-                Swal.fire("Error", `${response.data.message} `, "error");
-            }
-        } catch (error) {
-            Swal.fire("Error", `${response.data.message} `, "error");
-        } finally {
-            setLoading(false);
-        }
-    };
-
+function TextEditore({ initialContent }) {
     const [editorState, setEditorState] = useState(() => {
         if (initialContent) {
             return EditorState.createWithContent(
@@ -63,54 +31,16 @@ function Terms({ initialContent }) {
     const [currentFontSize, setCurrentFontSize] = useState(14);
     const [currentColor, setCurrentColor] = useState("BLACK");
 
-    // useEffect(() => {
-    //     fetch("http://localhost:3000/privacy")
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             try {
-    //                 if (data.Content) {
-    //                     // Convert plain text to Draft.js content state
-    //                     const contentState = ContentState.createFromText(
-    //                         data.Content
-    //                     );
-    //                     setEditorState(
-    //                         EditorState.createWithContent(contentState)
-    //                     );
-    //                 }
-    //             } catch (error) {
-    //                 console.error("Error parsing content:", error);
-    //             }
-    //         })
-    //         .catch((error) =>
-    //             console.error("Error fetching initial content:", error)
-    //         );
-    // }, []);
     useEffect(() => {
         fetch("http://localhost:3000/privacy")
             .then((response) => response.json())
             .then((data) => {
                 try {
                     if (data.Content) {
-                        let contentState;
-                        const isDraftJSFormat = (str) => {
-                            try {
-                                const parsed = JSON.parse(str);
-                                return parsed.blocks && parsed.entityMap;
-                            } catch (e) {
-                                return false;
-                            }
-                        };
-
-                        if (isDraftJSFormat(data.Content)) {
-                            contentState = convertFromRaw(
-                                JSON.parse(data.Content)
-                            );
-                        } else {
-                            contentState = ContentState.createFromText(
-                                data.Content
-                            );
-                        }
-
+                        // Convert plain text to Draft.js content state
+                        const contentState = ContentState.createFromText(
+                            data.Content
+                        );
                         setEditorState(
                             EditorState.createWithContent(contentState)
                         );
@@ -123,7 +53,6 @@ function Terms({ initialContent }) {
                 console.error("Error fetching initial content:", error)
             );
     }, []);
-
 
     const onChange = (newEditorState) => {
         setEditorState(newEditorState);
@@ -307,19 +236,8 @@ function Terms({ initialContent }) {
                     customStyleMap={customStyleMap}
                 />
             </div>
-            {Loading ? (
-                <span className="small-loader  w-full m-auto mt-6"></span>
-            ) : (
-                <div
-                    className=" text-white text-xl bg-perpol_v rounded-xl w-fit mx-auto py-1 px-2 
-                cursor-pointer mt-6"
-                    onClick={() => handleEditePrivacy()}
-                >
-                    Edite Privacy
-                </div>
-            )}
         </div>
     );
 }
 
-export default Terms;
+export default TextEditore;
