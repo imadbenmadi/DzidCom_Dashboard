@@ -14,6 +14,7 @@ import { FaUnderline } from "react-icons/fa";
 import { FaListUl } from "react-icons/fa";
 import { MdTextIncrease } from "react-icons/md";
 import { MdTextDecrease } from "react-icons/md";
+import { MdColorLens } from "react-icons/md";
 
 function DraftEditor({ initialContent }) {
     const [editorState, setEditorState] = useState(() => {
@@ -126,97 +127,100 @@ function DraftEditor({ initialContent }) {
     };
 
     return (
-        <div className=" w-full h-full flex justify-center items-center flex-col"> 
-            <div className="mb-2 flex gap-4 items-center ">
+        <div className=" w-full h-full flex justify-center items-center flex-col mt-5">
+            <div className="mb-2 flex gap-4 items-center border ">
                 <button
-                    className="px-2 py-1 border text-white rounded"
+                    className="px-2 py-1   rounded "
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleInlineStyle("BOLD");
                     }}
                 >
-                    Bold
+                    <FaBold />
                 </button>
                 <button
-                    className="px-2 py-1 text-white rounded"
+                    className="px-2 py-1  rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleInlineStyle("ITALIC");
                     }}
                 >
-                    Italic
+                    <FaItalic />
                 </button>
                 <button
-                    className="px-2 py-1 text-white rounded"
+                    className="px-2 py-1  rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleInlineStyle("UNDERLINE");
                     }}
                 >
-                    Underline
+                    <FaUnderline />
                 </button>
                 <button
-                    className="px-2 py-1 text-white rounded"
+                    className="px-2 py-1  rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         toggleBlockType("unordered-list-item");
                     }}
                 >
-                    List
+                    <FaListUl />
                 </button>
                 <button
-                    className="px-2 py-1 text-white rounded"
+                    className="px-2 py-1  rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         increaseFontSize();
                     }}
                 >
-                    Increase Font Size
+                    <MdTextIncrease className=" text-2xl" />
                 </button>
                 <button
-                    className="px-2 py-1 text-white rounded"
+                    className="px-2 py-1  rounded"
                     onMouseDown={(e) => {
                         e.preventDefault();
                         decreaseFontSize();
                     }}
                 >
-                    Decrease Font Size
+                    <MdTextDecrease className=" text-2xl" />
                 </button>
                 <div className="inline-block px-2 py-1">
                     <div className="flex space-x-2">
                         <button
-                            className="px-2 py-1 bg-red-500 text-white rounded"
+                            className="px-2 py-1   rounded"
                             onMouseDown={(e) => {
                                 e.preventDefault();
                                 changeTextColor("red");
                             }}
                         >
-                            Red
+                            <MdColorLens className=" text-red-600 text-xl" />
                         </button>
                         <button
-                            className="px-2 py-1 bg-green-500 text-white rounded"
+                            className="px-2 py-1   rounded"
                             onMouseDown={(e) => {
                                 e.preventDefault();
                                 changeTextColor("green");
                             }}
                         >
-                            Green
+                            <MdColorLens className="text-green-500 text-xl" />
                         </button>
                         <button
-                            className="px-2 py-1 bg-black text-white rounded"
+                            className="px-2 py-1   rounded"
                             onMouseDown={(e) => {
                                 e.preventDefault();
                                 changeTextColor("black");
                             }}
                         >
-                            Black
+                            <MdColorLens className=" text-xl" />
                         </button>
                     </div>
-                    <input
+                    {/* <input
                         type="color"
                         className="ml-2"
-                        onChange={(e) => changeTextColor(e.target.value)}
-                    />
+                        onChange={(e) => {
+                            
+                            changeTextColor(e.target.value);
+                        }}
+                    /> */}
                 </div>
             </div>
             <div className="p-2 w-[80%] h-[80vh] custom-overflow  overflow-auto border shadow-sm mx-auto rounded">
