@@ -8,6 +8,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import Logo from "../../../public/Logo.png";
+import { GoHome } from "react-icons/go";
+import { MdOutlineWorkOutline } from "react-icons/md";
+import { FaRegComment } from "react-icons/fa6";
+import { BiMessageDetail } from "react-icons/bi";
+import { PiListFill } from "react-icons/pi";
+import { RiContactsLine } from "react-icons/ri";
+
 function Laptop() {
     const Navigate = useNavigate();
     const { set_Auth } = useAppContext();
@@ -50,7 +57,10 @@ function Laptop() {
                 {/* <div className="text-sm text-gray_v font-semibold">Admin Panel</div> */}
             </div>
             <div>
-                <div className=" font-semibold pb-4">Home</div>
+                <div className=" font-semibold pb-4  flex gap-2 items-center ">
+                    <GoHome className=" text-lg" />
+                    Home
+                </div>
                 <div className=" flex flex-col gap-2 pl-2  ">
                     <Link
                         to={"/Home"}
@@ -58,9 +68,9 @@ function Laptop() {
                             Active_nav == "Home"
                                 ? "bg-blue_v text-gray_v px-4 "
                                 : "bg-white hover:text-perpol_v"
-                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full `}
                     >
-                        <span>Home</span>
+                        <span>Statistics</span>
                     </Link>
                     <Link
                         to={"/Users"}
@@ -75,7 +85,10 @@ function Laptop() {
                 </div>
             </div>
             <div>
-                <div className="  font-semibold pb-4">Prjects</div>
+                <div className=" font-semibold pb-4  flex gap-2 items-center ">
+                    <MdOutlineWorkOutline className=" text-lg" />
+                    Projects
+                </div>
                 <div className=" flex flex-col gap-2 pl-2 ">
                     <Link
                         to={"/Projects_Requests"}
@@ -130,7 +143,10 @@ function Laptop() {
                 </div>
             </div>
             <div>
-                <div className="  font-semibold pb-4">Feedbacks</div>
+                <div className=" font-semibold pb-4  flex gap-2 items-center ">
+                    <FaRegComment className=" text-lg" />
+                    Feedbacks
+                </div>
                 <div className=" flex flex-col gap-2 pl-2 ">
                     <Link
                         to={"/Feedbacks_Clients"}
@@ -155,7 +171,10 @@ function Laptop() {
                 </div>
             </div>
             <div>
-                <div className="  font-semibold pb-4">Messages</div>
+                <div className=" font-semibold pb-4  flex gap-2 items-center ">
+                    <BiMessageDetail className=" text-lg" />
+                    Messages
+                </div>
                 <div className=" flex flex-col gap-2 pl-2 ">
                     <Link
                         to={"/Messages"}
@@ -170,7 +189,10 @@ function Laptop() {
                 </div>
             </div>
             <div>
-                <div className="  font-semibold pb-4">Terms</div>
+                <div className=" font-semibold pb-4  flex gap-2 items-center ">
+                    <PiListFill className=" text-lg" />
+                    Terms
+                </div>
                 <div className=" flex flex-col gap-2 pl-2 ">
                     <Link
                         to={"/Terms"}
@@ -185,7 +207,10 @@ function Laptop() {
                 </div>
             </div>
             <div>
-                <div className="  font-semibold pb-4">Contact</div>
+                <div className=" font-semibold pb-4  flex gap-2 items-center ">
+                    <RiContactsLine className=" text-lg" />
+                    Contact
+                </div>{" "}
                 <div className=" flex flex-col gap-2 pl-2  ">
                     <Link
                         to={"/Contact"}
