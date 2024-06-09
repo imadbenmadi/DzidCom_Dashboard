@@ -133,7 +133,7 @@ function TextEditore({ initialContent }) {
 
     return (
         <div className=" w-full h-full flex justify-center items-center flex-col mt-5">
-            <div className="mb-2 flex gap-4 items-center border ">
+            <div className="mb-2 flex gap-4 items-center border flex-wrap py-6 md:py-0 ">
                 <button
                     className="px-2 py-1   rounded "
                     onMouseDown={(e) => {
