@@ -108,11 +108,11 @@ function Home() {
                             </div>
                             {/* <LiaUsersSolid className=" text-red-600 shadow-lg border border-gray_white rounded-lg p-4 flex items-center justify-center" /> */}
                             <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
-                                <FaUserTie className="  shrink-0 text-2xl" />
+                                <MdOutlineWork className="  shrink-0 text-2xl" />
                             </div>
                         </div>
                     </div>
-{/* 
+                    {/* 
                     <div className=" border shadow-md py-6 px-6 flex items-center justify-start rounded-md  min-w-[200px]">
                         <div>
                             <div>Total Projet</div>
