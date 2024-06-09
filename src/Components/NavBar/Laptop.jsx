@@ -7,6 +7,7 @@ import { TbLogout2 } from "react-icons/tb";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import Logo from "../../../public/Logo.png";
 function Laptop() {
     const Navigate = useNavigate();
     const { set_Auth } = useAppContext();
@@ -44,6 +45,10 @@ function Laptop() {
     };
     return (
         <div className="flex flex-col gap-8 text-sm text-gray_v pl-8 py-4">
+            <div className=" flex flex-col items-center justify-center">
+                <img src={Logo} alt="Logo" className="w-24 " />
+                {/* <div className="text-sm text-gray_v font-semibold">Admin Panel</div> */}
+            </div>
             <div>
                 <div className=" font-semibold pb-4">Home</div>
                 <div className=" flex flex-col gap-2 pl-2  ">
