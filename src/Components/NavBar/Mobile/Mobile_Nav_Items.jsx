@@ -7,6 +7,13 @@ import { TbLogout2 } from "react-icons/tb";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { GoHome } from "react-icons/go";
+import { MdOutlineWorkOutline } from "react-icons/md";
+import { FaRegComment } from "react-icons/fa6";
+import { BiMessageDetail } from "react-icons/bi";
+import { PiListFill } from "react-icons/pi";
+import { RiContactsLine } from "react-icons/ri";
+
 function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
     const Navigate = useNavigate();
     const { set_Auth } = useAppContext();
@@ -54,7 +61,10 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
             >
                 <div className="flex flex-col gap-8 text-sm text-gray_v pl-8 py-4 h-screen overflow-auto">
                     <div>
-                        <div className=" font-semibold pb-4">Home</div>
+                        <div className=" font-semibold pb-4 flex items-center gap-2">
+                            <GoHome className=" text-lg" />
+                            Home
+                        </div>
                         <div className=" flex flex-col gap-2 pl-2  ">
                             <Link
                                 to={"/Home"}
@@ -81,7 +91,10 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>
                     </div>
                     <div>
-                        <div className="  font-semibold pb-4">Prjects</div>
+                        <div className=" font-semibold pb-4 flex items-center gap-2">
+                            <MdOutlineWorkOutline className=" text-lg" />
+                            Projects
+                        </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2 ">
                             <Link
                                 to={"/Projects_Requests"}
@@ -141,7 +154,10 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>
                     </div>
                     <div>
-                        <div className="  font-semibold pb-4">Feedbacks</div>
+                        <div className=" font-semibold pb-4 flex items-center gap-2">
+                            <FaRegComment className=" text-lg" />
+                            FeedBacks
+                        </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2 ">
                             <Link
                                 to={"/Feedbacks_Clients"}
@@ -168,7 +184,10 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>
                     </div>
                     <div>
-                        <div className="  font-semibold pb-4">Messages</div>
+                        <div className=" font-semibold pb-4 flex items-center gap-2">
+                            <BiMessageDetail className=" text-lg" />
+                            Messages
+                        </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2 ">
                             <Link
                                 to={"/Messages"}
@@ -184,7 +203,10 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>
                     </div>
                     <div>
-                        <div className="  font-semibold pb-4">Terms</div>
+                        <div className=" font-semibold pb-4 flex items-center gap-2">
+                            <PiListFill className=" text-lg" />
+                            Terms
+                        </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2 ">
                             <Link
                                 to={"/Terms"}
@@ -200,7 +222,10 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>
                     </div>
                     <div>
-                        <div className="  font-semibold pb-4">Contact</div>
+                        <div className=" font-semibold pb-4 flex items-center gap-2">
+                            <RiContactsLine className=" text-lg" />
+                            Contact
+                        </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2  ">
                             <Link
                                 to={"/Contact"}
