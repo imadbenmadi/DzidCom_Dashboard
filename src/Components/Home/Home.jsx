@@ -62,7 +62,7 @@ function Home() {
                         </div>
                         <div className=" flex justify-between gap-2 mx-2 w-full">
                             <div className="  font-semibold text-2xl">
-                                {data.Freelancers + data.Clients}
+                                {data?.freelancers_nbr + data?.clients_nbr}
                             </div>
                             {/* <LiaUsersSolid className=" text-red-600 shadow-lg border border-gray_white rounded-lg p-4 flex items-center justify-center" /> */}
                             <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
@@ -76,7 +76,7 @@ function Home() {
                         </div>
                         <div className=" flex justify-between gap-2 mx-2 w-full">
                             <div className="  font-semibold text-2xl">
-                                {data.Freelancers}
+                                {data?.freelancers_nbr}
                             </div>
                             {/* <LiaUsersSolid className=" text-red-600 shadow-lg border border-gray_white rounded-lg p-4 flex items-center justify-center" /> */}
                             <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
@@ -90,7 +90,7 @@ function Home() {
                         </div>
                         <div className=" flex justify-between gap-2 mx-2 w-full">
                             <div className="  font-semibold text-2xl">
-                                {data.Clients}
+                                {data?.clients_nbr}
                             </div>
                             {/* <LiaUsersSolid className=" text-red-600 shadow-lg border border-gray_white rounded-lg p-4 flex items-center justify-center" /> */}
                             <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
@@ -104,7 +104,7 @@ function Home() {
                         </div>
                         <div className=" flex justify-between gap-2 mx-2 w-full">
                             <div className="  font-semibold text-2xl">
-                                {data.Projects}
+                                {data?.projects_nbr}
                             </div>
                             {/* <LiaUsersSolid className=" text-red-600 shadow-lg border border-gray_white rounded-lg p-4 flex items-center justify-center" /> */}
                             <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
@@ -112,24 +112,6 @@ function Home() {
                             </div>
                         </div>
                     </div>
-                    {/* 
-                    <div className=" border shadow-md py-6 px-6 flex items-center justify-start rounded-md  min-w-[200px]">
-                        <div>
-                            <div>Total Projet</div>
-                            {data.Projects}
-                        </div>
-                    </div> */}
-                    {/* <div className=" border shadow-md py-6 px-6 flex items-center justify-start rounded-md  min-w-[200px]">
-                        <div>
-                            <div>Applications :</div> {data.Applications}
-                        </div>
-                    </div> */}
-                    {/* <div className=" border shadow-md py-6 px-6 flex items-center justify-start rounded-md  min-w-[200px]">
-                        <div>
-                            <div>Payed Projects</div>
-                            {data.Payments}
-                        </div>
-                    </div> */}
                 </div>
             </div>
         );
