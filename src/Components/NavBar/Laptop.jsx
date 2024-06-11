@@ -170,7 +170,7 @@ function Laptop() {
                     </Link>
                 </div>
             </div>
-            <div>
+            {/* <div>
                 <div className=" font-semibold pb-4  flex gap-2 items-center ">
                     <BiMessageDetail className=" text-lg" />
                     Messages
@@ -187,7 +187,7 @@ function Laptop() {
                         <span>All messages</span>
                     </Link>
                 </div>
-            </div>
+            </div> */}
             <div>
                 <div className=" font-semibold pb-4  flex gap-2 items-center ">
                     <PiListFill className=" text-lg" />

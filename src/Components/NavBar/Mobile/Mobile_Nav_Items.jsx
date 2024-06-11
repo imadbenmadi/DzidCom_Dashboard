@@ -183,7 +183,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                             </Link>
                         </div>
                     </div>
-                    <div>
+                    {/* <div>
                         <div className=" font-semibold pb-4 flex items-center gap-2">
                             <BiMessageDetail className=" text-lg" />
                             Messages
@@ -201,7 +201,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 <span>All messages</span>
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <div className=" font-semibold pb-4 flex items-center gap-2">
                             <PiListFill className=" text-lg" />
