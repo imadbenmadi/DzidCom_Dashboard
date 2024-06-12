@@ -149,6 +149,16 @@ function Laptop() {
                 </div>
                 <div className=" flex flex-col gap-2 pl-2 ">
                     <Link
+                        to={"/Home_Feedbacks"}
+                        className={` ${
+                            Active_nav == "Home_Feedbacks"
+                                ? "bg-blue_v text-gray_v px-4 "
+                                : "bg-white hover:text-perpol_v"
+                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                    >
+                        <span>in Home</span>
+                    </Link>
+                    <Link
                         to={"/Feedbacks_Clients"}
                         className={` ${
                             Active_nav == "Feedbacks_Clients"

@@ -160,6 +160,17 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2 ">
                             <Link
+                                to={"/Home_Feedbacks"}
+                                onClick={Toogle_Menu_Bar}
+                                className={` ${
+                                    Active_nav == "Home_Feedbacks"
+                                        ? "bg-blue_v text-gray_v px-4 "
+                                        : "bg-white hover:text-perpol_v"
+                                }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                            >
+                                <span>in Home</span>
+                            </Link>
+                            <Link
                                 to={"/Feedbacks_Clients"}
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
