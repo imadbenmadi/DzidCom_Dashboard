@@ -182,8 +182,11 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                         Delete
                     </div>
                 )}
-
-                {add_to_home_Loading ? (
+                {feedback?.inHome ? (
+                    <div className="  text-green_v px-4 py-2 rounded-lg font-semibold">
+                        Added to Home
+                    </div>
+                ) : add_to_home_Loading ? (
                     <div className=" small-loader mt-2 ml-10"></div>
                 ) : (
                     <div
