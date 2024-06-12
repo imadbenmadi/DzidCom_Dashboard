@@ -16,7 +16,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
         setDeleteLoading(true);
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Admin/Feedbacks/Freelancers/${feedback?.id}`,
+                `http://localhost:3000/Admin/Feedbacks/Clients/${feedback?.id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -51,7 +51,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
         setadd_to_home_Loading(true);
         try {
             const response = await axios.post(
-                `http://localhost:3000/Admin/Feedbacks/Home_Feedbacks/Freelancer/${feedback?.id}`,
+                `http://localhost:3000/Admin/Feedbacks/Home_Feedbacks/Client/${feedback?.id}`,
                 {},
                 {
                     withCredentials: true,
@@ -91,7 +91,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                         <img
                             src={
                                 "http://localhost:3000" +
-                                feedback?.Freelancer?.profile_pic_link
+                                feedback?.Client?.profile_pic_link
                             }
                             className=" w-20 h-20 rounded-full"
                             alt=""
@@ -137,7 +137,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                             />
                         </div>
                         <div className="text-sm pt-1  font-semibold">
-                            {feedback?.Freelancer?.firstName}
+                            {feedback?.Client?.firstName}
                         </div>
                     </div>
                 </div>
