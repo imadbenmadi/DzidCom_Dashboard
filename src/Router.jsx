@@ -16,7 +16,7 @@ import Projects_At_Work from "./Components/Projects/AtWork/AtWork.jsx";
 import Feedbacks from "./Components/Feedbacks/Feedbacks.jsx";
 import Feedbacks_Clients from "./Components/Feedbacks/Clients_Freedbacks/Clients_Freedbacks.jsx";
 import Feedbacks_Freelancers from "./Components/Feedbacks/Freelancers_Feedbacks/Freelancers_Feedbacks.jsx";
-import Home_Feedbacks from "./Components/Feedbacks/Home_Feedbacks.jsx";
+import Home_Feedbacks from "./Components/Feedbacks/Home_Feedbacks/Home_Feedbacks.jsx"
 import Messages from "./Components/Messages/Messages.jsx";
 
 import Terms from "./Components/Terms/Terms.jsx";

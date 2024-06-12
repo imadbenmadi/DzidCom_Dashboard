@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import Card from "./Card";
 
-function Clients_Freedbacks() {
+function Home_Feedbacks() {
     const Navigate = useNavigate();
 
     const [Feedbacks, setFeedbacks] = useState(false);
@@ -22,14 +22,15 @@ function Clients_Freedbacks() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Feedbacks/Clients`,
+                    `http://localhost:3000/Home_Feedbacks`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
                     }
                 );
+                console.log(response.data);
                 if (response.status == 200) {
-                    const Feedbacks = response.data.feedbacks;
+                    const Feedbacks = response.data;
                     setFeedbacks(Feedbacks);
                 } else if (response.status == 401) {
                     Swal.fire("Error", "you should login again", "error");
@@ -67,7 +68,7 @@ function Clients_Freedbacks() {
         <div className=" py-6 px-4">
             <div className=" text-xl font-semibold text-perpol_b">
                 {" "}
-                Clients Feedbacks to Freelancers
+                Feedbacks in the Dzidcom Home page
             </div>
             {!Feedbacks ||
                 (Feedbacks.length == 0 && (
@@ -98,4 +99,4 @@ function Clients_Freedbacks() {
     );
 }
 
-export default Clients_Freedbacks;
+export default Home_Feedbacks;

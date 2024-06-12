@@ -24,7 +24,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
             );
             if (response.status === 200) {
                 const newFeedbacks = Feedbacks.filter(
-                    (feedback) => feedback?.id !== feedback?.id
+                    (item) => item?.id !== feedback?.id
                 );
                 setFeedbacks(newFeedbacks);
                 Swal.fire(

@@ -16,7 +16,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
         setDeleteLoading(true);
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Admin/Feedbacks/Clients/${feedback?.id}`,
+                `http://localhost:3000/Admin/Feedbacks/Home_Feedbacks/${feedback?.id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -47,38 +47,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
             setDeleteLoading(false);
         }
     };
-    const Add_to_Home = async () => {
-        setadd_to_home_Loading(true);
-        try {
-            const response = await axios.post(
-                `http://localhost:3000/Admin/Feedbacks/Home_Feedbacks/Client/${feedback?.id}`,
-                {},
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            if (response.status === 200) {
-                Swal.fire(
-                    "Success",
-                    "Feedback Added to Home Successfully",
-                    "success"
-                );
-            } else if (response.status === 401) {
-                Swal.fire(
-                    "Unauthorized",
-                    "Please You have to Login Again",
-                    "error"
-                );
-                Navigate("/Login");
-            } else Swal.fire("Error", `${response.data.message}`, "error");
-        } catch (err) {
-            console.log(err);
-            Swal.fire("Error", "Somthing went wrong", "error");
-        } finally {
-            setadd_to_home_Loading(false);
-        }
-    };
+
     return (
         <div
             key={feedback?.id}
@@ -180,22 +149,6 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                         }}
                     >
                         Delete
-                    </div>
-                )}
-                {feedback?.inHome ? (
-                    <div className="  text-green_v px-4 py-2 rounded-lg font-semibold">
-                        Added to Home
-                    </div>
-                ) : add_to_home_Loading ? (
-                    <div className=" small-loader mt-2 ml-10"></div>
-                ) : (
-                    <div
-                        className=" cursor-pointer text-white bg-green_v px-4 py-2 rounded-lg font-semibold"
-                        onClick={() => {
-                            Add_to_Home();
-                        }}
-                    >
-                        Add to Home
                     </div>
                 )}
             </div>
