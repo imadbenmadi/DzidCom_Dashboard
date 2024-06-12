@@ -124,7 +124,6 @@ function Terms({ initialContent }) {
             );
     }, []);
 
-
     const onChange = (newEditorState) => {
         setEditorState(newEditorState);
     };
@@ -203,93 +202,98 @@ function Terms({ initialContent }) {
     };
 
     return (
-        <div className=" w-full h-full flex justify-center items-center flex-col mt-5">
-            <div className="mb-2 flex gap-4 items-center border ">
-                <button
-                    className="px-2 py-1   rounded "
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                        toggleInlineStyle("BOLD");
-                    }}
-                >
-                    <FaBold />
-                </button>
-                <button
-                    className="px-2 py-1  rounded"
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                        toggleInlineStyle("ITALIC");
-                    }}
-                >
-                    <FaItalic />
-                </button>
-                <button
-                    className="px-2 py-1  rounded"
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                        toggleInlineStyle("UNDERLINE");
-                    }}
-                >
-                    <FaUnderline />
-                </button>
-                <button
-                    className="px-2 py-1  rounded"
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                        toggleBlockType("unordered-list-item");
-                    }}
-                >
-                    <FaListUl />
-                </button>
-                <button
-                    className="px-2 py-1  rounded"
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                        increaseFontSize();
-                    }}
-                >
-                    <MdTextIncrease className=" text-2xl" />
-                </button>
-                <button
-                    className="px-2 py-1  rounded"
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                        decreaseFontSize();
-                    }}
-                >
-                    <MdTextDecrease className=" text-2xl" />
-                </button>
-                <div className="inline-block px-2 py-1">
-                    <div className="flex space-x-2">
-                        <button
-                            className="px-2 py-1   rounded"
-                            onMouseDown={(e) => {
-                                e.preventDefault();
-                                changeTextColor("red");
-                            }}
-                        >
-                            <MdColorLens className=" text-red-600 text-xl" />
-                        </button>
-                        <button
-                            className="px-2 py-1   rounded"
-                            onMouseDown={(e) => {
-                                e.preventDefault();
-                                changeTextColor("green");
-                            }}
-                        >
-                            <MdColorLens className="text-green-500 text-xl" />
-                        </button>
-                        <button
-                            className="px-2 py-1   rounded"
-                            onMouseDown={(e) => {
-                                e.preventDefault();
-                                changeTextColor("black");
-                            }}
-                        >
-                            <MdColorLens className=" text-xl" />
-                        </button>
-                    </div>
-                    {/* <input
+        <>
+            <div className=" text-xl font-semibold text-perpol_b my-5 pl-5">
+                {" "}
+                Terms & Conditions{" "}
+            </div>{" "}
+            <div className=" w-full h-full flex justify-center items-center flex-col ">
+                <div className="mb-2 flex gap-4 items-center border ">
+                    <button
+                        className="px-2 py-1   rounded "
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            toggleInlineStyle("BOLD");
+                        }}
+                    >
+                        <FaBold />
+                    </button>
+                    <button
+                        className="px-2 py-1  rounded"
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            toggleInlineStyle("ITALIC");
+                        }}
+                    >
+                        <FaItalic />
+                    </button>
+                    <button
+                        className="px-2 py-1  rounded"
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            toggleInlineStyle("UNDERLINE");
+                        }}
+                    >
+                        <FaUnderline />
+                    </button>
+                    <button
+                        className="px-2 py-1  rounded"
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            toggleBlockType("unordered-list-item");
+                        }}
+                    >
+                        <FaListUl />
+                    </button>
+                    <button
+                        className="px-2 py-1  rounded"
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            increaseFontSize();
+                        }}
+                    >
+                        <MdTextIncrease className=" text-2xl" />
+                    </button>
+                    <button
+                        className="px-2 py-1  rounded"
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            decreaseFontSize();
+                        }}
+                    >
+                        <MdTextDecrease className=" text-2xl" />
+                    </button>
+                    <div className="inline-block px-2 py-1">
+                        <div className="flex space-x-2">
+                            <button
+                                className="px-2 py-1   rounded"
+                                onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    changeTextColor("red");
+                                }}
+                            >
+                                <MdColorLens className=" text-red-600 text-xl" />
+                            </button>
+                            <button
+                                className="px-2 py-1   rounded"
+                                onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    changeTextColor("green");
+                                }}
+                            >
+                                <MdColorLens className="text-green-500 text-xl" />
+                            </button>
+                            <button
+                                className="px-2 py-1   rounded"
+                                onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    changeTextColor("black");
+                                }}
+                            >
+                                <MdColorLens className=" text-xl" />
+                            </button>
+                        </div>
+                        {/* <input
                         type="color"
                         className="ml-2"
                         onChange={(e) => {
@@ -297,28 +301,29 @@ function Terms({ initialContent }) {
                             changeTextColor(e.target.value);
                         }}
                     /> */}
+                    </div>
                 </div>
-            </div>
-            <div className="p-2 w-[80%] h-[80vh] custom-overflow  overflow-auto border shadow-sm mx-auto rounded">
-                <Editor
-                    editorState={editorState}
-                    onChange={onChange}
-                    handleKeyCommand={handleKeyCommand}
-                    customStyleMap={customStyleMap}
-                />
-            </div>
-            {Loading ? (
-                <span className="small-loader  w-full m-auto mt-6"></span>
-            ) : (
-                <div
-                    className=" text-white text-xl bg-perpol_v rounded-xl w-fit mx-auto py-1 px-2 
+                <div className="p-2 w-[80%] h-[80vh] custom-overflow  overflow-auto border shadow-sm mx-auto rounded">
+                    <Editor
+                        editorState={editorState}
+                        onChange={onChange}
+                        handleKeyCommand={handleKeyCommand}
+                        customStyleMap={customStyleMap}
+                    />
+                </div>
+                {Loading ? (
+                    <span className="small-loader  w-full m-auto mt-6"></span>
+                ) : (
+                    <div
+                        className=" text-white text-xl bg-perpol_v rounded-xl w-fit mx-auto py-1 px-2 
                 cursor-pointer mt-6"
-                    onClick={() => handleEditePrivacy()}
-                >
-                    Edite Privacy
-                </div>
-            )}
-        </div>
+                        onClick={() => handleEditePrivacy()}
+                    >
+                        Edite Privacy
+                    </div>
+                )}
+            </div>
+        </>
     );
 }
 

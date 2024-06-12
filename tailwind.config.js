@@ -8,6 +8,7 @@ export default {
                 green_v: "#469F78",
                 yallow_v: "#F6BC63",
                 perpol_v: "#9DA0E3",
+                perpol_b: "#4f54bd",
                 Rose_v: "#EFCFF9",
                 Rose_b_v: "#CF74E9",
                 blue_v: "#D3E1FD",
