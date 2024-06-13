@@ -40,7 +40,7 @@ function Users() {
         };
 
         fetchUsers();
-    }, [navigate]);
+    }, []);
 
     const filteredUsers = users
         .filter((user) => {
