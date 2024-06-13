@@ -61,51 +61,52 @@ function Contact() {
                 </div>
             </div>
         );
-    return (
-        <div className=" py-6 px-4">
-            <div className=" text-xl font-semibold text-perpol_b">
-                {" "}
-                Contact Messages
-            </div>
-
-            {!Messages || Messages.length == 0 ? (
-                <div className="text-md font-semibold text-gray_v text-center pt-12">
-                    No Messages
+    else
+        return (
+            <div className=" py-6 px-4">
+                <div className=" text-xl font-semibold text-perpol_b">
+                    {" "}
+                    Contact Messages
                 </div>
-            ) : (
-                <div>
-                    <div className=" w-full flex justify-center py-4">
-                        <div className="max-w-[300px] border shadow-md py-6 px-6 flex flex-col items-center justify-start rounded-md md:min-w-[200px]">
-                            <div className=" text-xs font-semibold pb-2 text-gray_v w-full">
-                                Total Number of messages:
-                            </div>
-                            <div className=" flex justify-between gap-2 mx-2 w-full">
-                                <div className="  font-semibold text-2xl">
-                                    {Messages.length}
+
+                {!Messages || Messages.length == 0 ? (
+                    <div className="text-md font-semibold text-gray_v text-center pt-12">
+                        No Messages
+                    </div>
+                ) : (
+                    <div>
+                        <div className=" w-full flex justify-center py-4">
+                            <div className="max-w-[300px] border shadow-md py-6 px-6 flex flex-col items-center justify-start rounded-md md:min-w-[200px]">
+                                <div className=" text-xs font-semibold pb-2 text-gray_v w-full">
+                                    Total Number of messages:
                                 </div>
-                                <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
-                                    <BiMessage className=" shrink-0 text-2xl" />
+                                <div className=" flex justify-between gap-2 mx-2 w-full">
+                                    <div className="  font-semibold text-2xl">
+                                        {Messages.length}
+                                    </div>
+                                    <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
+                                        <BiMessage className=" shrink-0 text-2xl" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        {Messages &&
+                            Messages.map((message) => {
+                                return (
+                                    <Card
+                                        key={message.id}
+                                        Message={message}
+                                        setMessages={setMessages}
+                                        Messages={Messages}
+                                        // handle_Delete_message={handle_Delete_message}
+                                    />
+                                );
+                            })}
                     </div>
-                    
-                    {Messages &&
-                        Messages.map((message) => {
-                            return (
-                                <Card
-                                    key={message.id}
-                                    Message={message}
-                                    setMessages={setMessages}
-                                    Messages={Messages}
-                                    // handle_Delete_message={handle_Delete_message}
-                                />
-                            );
-                        })}
-                </div>
-            )}
-        </div>
-    );
+                )}
+            </div>
+        );
 }
 
 export default Contact;

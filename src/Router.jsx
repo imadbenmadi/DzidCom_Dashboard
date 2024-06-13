@@ -25,6 +25,8 @@ import Contact from "./Components/Contact/Contact.jsx";
 import Not_Found from "./Components/Not_Found";
 import Not_Finished from "./Components/Not_Finished";
 import ErrorElement from "./Components/ErrorElement";
+import Client_Profile from "./Components/Users/Client_Profile.jsx";
+import Freelancer_Profile from "./Components/Users/Freelancer_Profile.jsx";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -43,6 +45,16 @@ const routes = createBrowserRouter([
             {
                 path: "/Users",
                 element: <Users />,
+                errorElement: <ErrorElement />,
+            },
+            {
+                path: "/Users/Clients/:userId",
+                element: <Client_Profile />,
+                errorElement: <ErrorElement />,
+            },
+            {
+                path: "/Users/Freelancers/:userId",
+                element: <Freelancer_Profile />,
                 errorElement: <ErrorElement />,
             },
 
