@@ -70,7 +70,7 @@ function Clients_Freedbacks() {
                 Clients Feedbacks to Freelancers
             </div>
             {!Feedbacks ||
-                (Feedbacks.length == 0 && (
+                (Feedbacks?.length == 0 && (
                     <div className="text-md font-semibold text-gray_v text-center pt-12">
                         No Feedbacks
                     </div>
