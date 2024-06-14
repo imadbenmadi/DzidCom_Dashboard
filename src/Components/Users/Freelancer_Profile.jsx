@@ -96,7 +96,6 @@ function PersonalInformations({ user }) {
                         {user?.about ? user.about : null}
                     </div>
                 </div>
-                
             </div>
             <div className=" text-lg text-gray_v font-semibold flex items-center justify-between ">
                 <div className=" flex flex-col md:flex-row md:items-center justify-center gap-2 md:gap-6">
@@ -111,7 +110,6 @@ function PersonalInformations({ user }) {
                         )}
                     </div>
                 </div>
-               
             </div>
             {/* <div className=" text-lg text-gray_v font-semibold flex items-center justify-between ">
                 <div className=" flex flex-col md:flex-row md:items-center justify-center gap-2 md:gap-6">
@@ -141,7 +139,6 @@ function PersonalInformations({ user }) {
                         )}
                     </div>
                 </div>
-                
             </div>
 
             <div className=" font-semibold text-gray_v text-lg flex items-center justify-between">
@@ -156,7 +153,6 @@ function PersonalInformations({ user }) {
                         <div className="text-sm">none</div>
                     )}{" "}
                 </div>
-                
             </div>
             <div className=" flex items-start justify-between ">
                 <div className="flex flex-col gap-6  ">
@@ -182,7 +178,6 @@ function PersonalInformations({ user }) {
                         )}
                     </div>
                 </div>
-               
             </div>
             <div className=" w-full bg-gray_white h-[1px]"> </div>
 
@@ -204,7 +199,6 @@ function PersonalInformations({ user }) {
                         )}
                     </div>
                 </div>
-                
             </div>
             <div className=" flex items-start justify-between ">
                 <div className="flex flex-col gap-4 w-full  ">
@@ -275,7 +269,6 @@ function PersonalInformations({ user }) {
                         </div>
                     </div>
                 </div>
-               
             </div>
             {user?.facebook_Link ||
             user?.instgram_Link ||
@@ -307,7 +300,6 @@ function PersonalInformations({ user }) {
                             />
                         )}
                     </div>
-                   
                 </div>
             ) : null}
 
@@ -348,7 +340,7 @@ function PersonalInformations({ user }) {
 function Hero({ user }) {
     const Navigate = useNavigate();
     return (
-        <div className="flex flex-row  items-start justify-around mt-8">
+        <div className="flex flex-row  items-start justify-around ">
             <div className="  flex  justify-center max-w-[350px] gap-6 md:gap-12">
                 {user?.profile_pic_link ? (
                     <img
@@ -389,14 +381,12 @@ function Hero({ user }) {
                             </>
                         ) : null}
                     </div>
-                    
                 </div>
             </div>
-           
         </div>
     );
 }
-function Feedback_Card({  feedback, Feedbacks, setFeedbacks }) {
+function Feedback_Card({ feedback, Feedbacks, setFeedbacks }) {
     const [deleteLoading, setDeleteLoading] = useState(false);
     const [add_to_home_Loading, setadd_to_home_Loading] = useState(false);
     const [show_more, setShow_more] = useState(false);
@@ -552,7 +542,10 @@ function Freelancer_Profile() {
         );
     } else {
         return (
-            <div>
+            <div className=" pt-6 pl-6">
+                <div className="text-xl font-semibold  text-perpol_b pb-6">
+                    Freelancer Profile
+                </div>
                 <Hero user={user} />
                 {/* <Applications /> */}
                 <PersonalInformations user={user} />

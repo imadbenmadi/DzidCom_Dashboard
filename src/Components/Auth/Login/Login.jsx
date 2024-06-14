@@ -3,13 +3,11 @@ import Login_image from "../../../../public/Login.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import handleLogin from "./Post_Login";
 import { useNavigate } from "react-router";
-import { useAppContext } from "../../../AppContext";
 import { useState, useEffect } from "react";
 import Logo from '../../../../public/Logo.png'
 function Login() {
     const Navigate = useNavigate();
     const [loading, setLoading] = useState(true);
-    const { set_Auth, isAuth, store_login } = useAppContext();
 
     useEffect(() => {
         const fetch_images = () => {

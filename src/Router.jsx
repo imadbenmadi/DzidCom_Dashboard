@@ -13,10 +13,11 @@ import Projects_Accepted from "./Components/Projects/Accepted/Accepted.jsx";
 import Projects_Paying from "./Components/Projects/Paying/Paying.jsx";
 import Projects_At_Work from "./Components/Projects/AtWork/AtWork.jsx";
 
+import Request_Project_Item from "./Components/Projects/Requests/Item.jsx";
 import Feedbacks from "./Components/Feedbacks/Feedbacks.jsx";
 import Feedbacks_Clients from "./Components/Feedbacks/Clients_Freedbacks/Clients_Freedbacks.jsx";
 import Feedbacks_Freelancers from "./Components/Feedbacks/Freelancers_Feedbacks/Freelancers_Feedbacks.jsx";
-import Home_Feedbacks from "./Components/Feedbacks/Home_Feedbacks/Home_Feedbacks.jsx"
+import Home_Feedbacks from "./Components/Feedbacks/Home_Feedbacks/Home_Feedbacks.jsx";
 import Messages from "./Components/Messages/Messages.jsx";
 
 import Terms from "./Components/Terms/Terms.jsx";
@@ -61,6 +62,11 @@ const routes = createBrowserRouter([
             {
                 path: "/Projects_Requests",
                 element: <Projects_Requests />,
+                errorElement: <ErrorElement />,
+            },
+            {
+                path: "/Projects_Requests/:id",
+                element: <Request_Project_Item />,
                 errorElement: <ErrorElement />,
             },
             {

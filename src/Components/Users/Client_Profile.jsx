@@ -302,7 +302,7 @@ function PersonalInformations({ user }) {
 function Hero({ user }) {
     const Navigate = useNavigate();
     return (
-        <div className="flex flex-row  items-start justify-around mt-8">
+        <div className="flex flex-row  items-start justify-around ">
             <div className="  flex  justify-center max-w-[350px] gap-6 md:gap-12">
                 {user?.profile_pic_link ? (
                     <img
@@ -523,7 +523,10 @@ function Client_Profile() {
         );
     } else
         return (
-            <div>
+            <div className=" pt-6 pl-6">
+                <div className="text-xl font-semibold  text-perpol_b pb-6">
+                    Client Profile
+                </div>
                 <Hero user={user} />
                 {/* <Applications /> */}
                 <PersonalInformations user={user} />
