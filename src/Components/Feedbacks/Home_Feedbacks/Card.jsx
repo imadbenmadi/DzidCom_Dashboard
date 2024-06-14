@@ -58,10 +58,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                 <div className="flex gap-4 ">
                     <div className="text-lg font-semibold">
                         <img
-                            src={
-                                "http://localhost:3000" +
-                                feedback?.Client?.profile_pic_link
-                            }
+                            src={"http://localhost:3000" + feedback?.image_link}
                             className=" w-20 h-20 rounded-full"
                             alt=""
                         />
@@ -106,7 +103,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                             />
                         </div>
                         <div className="text-sm pt-1  font-semibold">
-                            {feedback?.Client?.firstName}
+                            {feedback?.full_user_name}
                         </div>
                     </div>
                 </div>

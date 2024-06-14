@@ -74,7 +74,7 @@ function Users() {
     } else {
         return (
             <div className="py-6 px-4">
-                <div className="text-xl font-semibold text-purple-600">
+                <div className="text-xl font-semibold  text-perpol_b">
                     Dzidcom Users
                 </div>
                 <div className="mt-4 flex flex-col md:flex-row gap-4 justify-center md:justify-end md:mr-6 md:gap-6 text-gray-600">
