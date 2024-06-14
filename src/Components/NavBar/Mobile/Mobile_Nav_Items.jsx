@@ -97,6 +97,17 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </div>{" "}
                         <div className=" flex flex-col gap-2 pl-2 ">
                             <Link
+                                to={"/All_Projects"}
+                                onClick={Toogle_Menu_Bar}
+                                className={` ${
+                                    Active_nav == "All_Projects"
+                                        ? "bg-blue_v text-gray_v px-4 "
+                                        : "bg-white hover:text-perpol_v"
+                                }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                            >
+                                <span>All Projects</span>
+                            </Link>
+                            <Link
                                 to={"/Projects_Requests"}
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${

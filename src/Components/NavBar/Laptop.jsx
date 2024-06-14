@@ -91,6 +91,16 @@ function Laptop() {
                 </div>
                 <div className=" flex flex-col gap-2 pl-2 ">
                     <Link
+                        to={"/All_Projects"}
+                        className={` ${
+                            Active_nav == "All_Projects"
+                                ? "bg-blue_v text-gray_v px-4 "
+                                : "bg-white hover:text-perpol_v"
+                        }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
+                    >
+                        <span>All Projects</span>
+                    </Link>
+                    <Link
                         to={"/Projects_Requests"}
                         className={` ${
                             Active_nav == "Projects_Requests"

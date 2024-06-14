@@ -12,6 +12,8 @@ import Projects_Applications from "./Components/Projects/Applications/Applicatio
 import Projects_Accepted from "./Components/Projects/Accepted/Accepted.jsx";
 import Projects_Paying from "./Components/Projects/Paying/Paying.jsx";
 import Projects_At_Work from "./Components/Projects/AtWork/AtWork.jsx";
+import All_Projects from "./Components/Projects/All_Projects/All_Projects.jsx";
+import All_Projects_item from "./Components/Projects/All_Projects/Item.jsx";
 
 import Request_Project_Item from "./Components/Projects/Requests/Item.jsx";
 import Feedbacks from "./Components/Feedbacks/Feedbacks.jsx";
@@ -59,6 +61,16 @@ const routes = createBrowserRouter([
                 errorElement: <ErrorElement />,
             },
 
+            {
+                path: "/All_Projects",
+                element: <All_Projects />,
+                errorElement: <ErrorElement />,
+            },
+            {
+                path: "/All_Projects/:id",
+                element: <All_Projects_item />,
+                errorElement: <ErrorElement />,
+            },
             {
                 path: "/Projects_Requests",
                 element: <Projects_Requests />,
