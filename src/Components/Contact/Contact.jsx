@@ -77,7 +77,7 @@ function Contact() {
                     <div>
                         <div className=" w-full flex justify-center py-4">
                             <div className="max-w-[300px] border shadow-md py-6 px-6 flex flex-col items-center justify-start rounded-md md:min-w-[200px]">
-                                <div className=" text-xs font-semibold pb-2 text-gray_v w-full">
+                                <div className=" text-xs font-semibold pb-5 text-gray_v w-full">
                                     Total Number of messages:
                                 </div>
                                 <div className=" flex justify-between gap-2 mx-2 w-full">
