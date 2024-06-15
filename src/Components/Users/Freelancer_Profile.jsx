@@ -13,6 +13,9 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 function Reviews({ user }) {
     const [Loading, setLoading] = useState(false);
     const [Feedbacks, setFeedbacks] = useState([]);
@@ -207,7 +210,7 @@ function PersonalInformations({ user }) {
                     </div>
                     <div className="flex flex-wrap gap-6">
                         {user?.PortfolioItems &&
-                            user.PortfolioItems.length > 0 &&
+                        user.PortfolioItems.length > 0 ? (
                             user.PortfolioItems.map((project) => (
                                 <div
                                     key={project.id}
@@ -221,17 +224,23 @@ function PersonalInformations({ user }) {
                                     </div>
                                     <div className="flex items-center gap-2 text-sm text-gray_v">
                                         <div>
-                                            {new Date(
+                                            {/* {new Date(
                                                 project.startDate
-                                            ).toLocaleDateString()}
+                                            ).toLocaleDateString()} */}
+                                            {dayjs(project?.startDate).format(
+                                                "DD MMMM YYYY"
+                                            )}
                                         </div>
                                         <div className="flex gap-2">
                                             <div> -</div>
                                             {project.endDate && (
                                                 <div>
-                                                    {new Date(
+                                                    {/* {new Date(
                                                         project.endDate
-                                                    ).toLocaleDateString()}
+                                                    ).toLocaleDateString()} */}
+                                                    {dayjs(
+                                                        project?.endDate
+                                                    ).format("DD MMMM YYYY")}
                                                 </div>
                                             )}
                                         </div>
@@ -255,18 +264,12 @@ function PersonalInformations({ user }) {
                                         </div>
                                     )}
                                 </div>
-                            ))}
-                        <div
-                            className="flex items-center justify-center w-full gap-2 text-xl text-center text-perpol_v font-semibold cursor-pointer"
-                            onClick={() => {
-                                // window.location.href =
-                                //     "/Freelancer/Complete_Profile/Step_3";
-                                Navigate("/Freelancer/Complete_Profile/Step_3");
-                            }}
-                        >
-                            <IoIosAddCircle />
-                            Add item
-                        </div>
+                            ))
+                        ) : (
+                            <div className=" font-semibold text-gray_v text-center text-sm ">
+                                No items found
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -340,7 +343,7 @@ function PersonalInformations({ user }) {
 function Hero({ user }) {
     const Navigate = useNavigate();
     return (
-        <div className="flex flex-row  items-start justify-around ">
+        <div className="flex flex-row  items-start justify-around  pb-10">
             <div className="  flex  justify-center max-w-[350px] gap-6 md:gap-12">
                 {user?.profile_pic_link ? (
                     <img

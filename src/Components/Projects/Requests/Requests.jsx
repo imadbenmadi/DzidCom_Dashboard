@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import axios from "axios";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 
 function Requests() {
     const navigate = useNavigate();
@@ -11,7 +14,9 @@ function Requests() {
     const [error, setError] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [projectTypeFilter, setprojectTypeFilter] = useState("");
-
+    const formatDate = (dateString) => {
+        return dayjs(dateString).format("DD  MMMM  YYYY");
+    };
     useEffect(() => {
         setLoading(true);
         const fetchProjects = async () => {
@@ -112,9 +117,10 @@ function Requests() {
                                     </td>
 
                                     <td className="border px-4 py-2">
-                                        {new Date(
+                                        {/* {new Date(
                                             project.createdAt
-                                        ).toLocaleDateString()}
+                                        ).toLocaleDateString()} */}
+                                        {formatDate(project?.createdAt)}
                                     </td>
                                     <td className="border px-4 py-2">
                                         <button

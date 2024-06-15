@@ -14,6 +14,10 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { MdOutlineFileUpload } from "react-icons/md";
 import Alert_icon from "../../../../public//Project/Alert.png";
 import { FaUpload } from "react-icons/fa";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
+
 function Freelancer_Process_item() {
     const Navigate = useNavigate();
     // const [Rejections, SetRejections] = useState([]);
@@ -26,6 +30,12 @@ function Freelancer_Process_item() {
     const [AcceptLoading, setAcceptLoading] = useState(false);
     const [RejectLoading, setRejectLoading] = useState(false);
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
+
+    // Function to format the date
+    const formatDate = (dateString) => {
+        return dayjs(dateString).format("DD  MMMM  YYYY");
+    };
+
     const isDraftJSFormat = (str) => {
         try {
             const parsed = JSON.parse(str);
@@ -275,25 +285,32 @@ function Freelancer_Process_item() {
                             {project?.Frelancer_Experiance && (
                                 <div className="flex items-center justify-between w-full">
                                     <div className="text-sm pt-2 text-gray_v">
-                                        frelancer experiance :{" "}
+                                        requested frelancer experiance :{" "}
                                         <span className=" font-semibold">
                                             {project?.Frelancer_Experiance}
                                         </span>
                                     </div>
                                 </div>
                             )}
-
-                            <div className="flex items-center justify-between w-full py-2 font-semibold">
+                            <div className="flex items-center justify-between w-full pt-2 font-semibold">
                                 <div className="text-sm pt-1 text-gray_v">
-                                    Deadline : {project?.DeadLine}
+                                    Expected Deadline : {project?.Expected_Time}
                                 </div>
                             </div>
+                            <div className="flex items-center justify-between w-full  font-semibold">
+                                <div className="text-sm pt-1 text-gray_v">
+                                    Client Bugdget : {project?.Client_Budget}
+                                </div>
+                            </div>{" "}
                             <div className="flex items-center justify-between w-full font-semibold">
                                 <div className="text-sm pt-1 text-gray_v">
                                     Created at :{" "}
-                                    {new Date(
+                                    {/* {new Date(
                                         project?.createdAt
-                                    ).toLocaleDateString()}
+                                    ).toLocaleDateString()} */}
+                                    {formatDate(project?.createdAt)}
+                                    {/* const formattedDate = */}
+                                    {/* ; */}
                                 </div>
                             </div>
                         </div>

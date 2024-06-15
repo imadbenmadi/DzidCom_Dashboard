@@ -3,7 +3,9 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { IoSearch } from "react-icons/io5";
-
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 function Users() {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
@@ -143,9 +145,12 @@ function Users() {
                                             : "Freelancer"}
                                     </td>
                                     <td className="border px-4 py-2">
-                                        {new Date(
+                                        {/* {new Date(
                                             user.createdAt
-                                        ).toLocaleDateString()}
+                                        ).toLocaleDateString()} */}
+                                        {dayjs(user?.createdAt).format(
+                                            "DD MMMM YYYY"
+                                        )}
                                     </td>
                                     <td className="border px-4 py-2">
                                         <button

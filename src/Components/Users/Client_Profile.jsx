@@ -13,6 +13,9 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 function Reviews({ user }) {
     const [Loading, setLoading] = useState(false);
     const [Feedbacks, setFeedbacks] = useState([]);
@@ -223,9 +226,11 @@ function PersonalInformations({ user }) {
                     </div>
                     <div>
                         {user?.company_creationDate ? (
-                            new Date(
-                                user.company_creationDate
-                            ).toLocaleDateString()
+                            // new Date(
+                            //     user.company_creationDate
+                            // ).toLocaleDateString()
+                            // formatDate(user?.company_creationDate)
+                            dayjs(user?.company_creationDate).format("DD  MMMM  YYYY")
                         ) : (
                             <div className="text-sm">none</div>
                         )}
@@ -302,7 +307,7 @@ function PersonalInformations({ user }) {
 function Hero({ user }) {
     const Navigate = useNavigate();
     return (
-        <div className="flex flex-row  items-start justify-around ">
+        <div className="flex flex-row  items-start justify-around pb-10 ">
             <div className="  flex  justify-center max-w-[350px] gap-6 md:gap-12">
                 {user?.profile_pic_link ? (
                     <img
@@ -343,28 +348,10 @@ function Hero({ user }) {
                             </>
                         ) : null}
                     </div>
-                    <div
-                        className=" block  md:hidden  text-white font-semibold bg-perpol_v py-2 px-4  text-sm mt-4
-                                rounded-md cursor-pointer "
-                        onClick={() => {
-                            // window.location.href = "/Client/Projects";
-                            Navigate("/Client/Projects");
-                        }}
-                    >
-                        Your Projects
-                    </div>
+                    
                 </div>
             </div>
-            <div
-                className=" hidden md:block text-white font-semibold bg-perpol_v py-2 px-4  text-xl
-            rounded-md cursor-pointer "
-                onClick={() => {
-                    // window.location.href = "/Client/Projects";
-                    Navigate("/Client/Projects");
-                }}
-            >
-                Your Projects
-            </div>
+            
         </div>
     );
 }
