@@ -129,7 +129,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                             >
                                 <span>Applications</span>
                             </Link>
-                            <Link
+                            {/* <Link
                                 to={"/Projects_Accepted"}
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
@@ -139,7 +139,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
                                 <span>Accepted</span>
-                            </Link>
+                            </Link> */}
                             <Link
                                 to={"/Projects_Paying"}
                                 onClick={Toogle_Menu_Bar}
@@ -149,9 +149,9 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                         : "bg-white hover:text-perpol_v"
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
-                                <span>Paying</span>
+                                <span>Payment</span>
                             </Link>
-                            <Link
+                            {/* <Link
                                 to={"/Projects_At_Work"}
                                 onClick={Toogle_Menu_Bar}
                                 className={` ${
@@ -161,7 +161,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                                 }  transition-all duration-150  cursor-pointer py-1 select-none  w-[150px] rounded-full  `}
                             >
                                 <span>At Work</span>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <div>

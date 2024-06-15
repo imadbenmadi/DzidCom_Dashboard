@@ -9,9 +9,7 @@ import Users from "./Components/Users/Users";
 import Projects from "./Components/Projects/Projects.jsx";
 import Projects_Requests from "./Components/Projects/Requests/Requests.jsx";
 import Projects_Applications from "./Components/Projects/Applications/Applications.jsx";
-import Projects_Accepted from "./Components/Projects/Accepted/Accepted.jsx";
 import Projects_Paying from "./Components/Projects/Paying/Paying.jsx";
-import Projects_At_Work from "./Components/Projects/AtWork/AtWork.jsx";
 import All_Projects from "./Components/Projects/All_Projects/All_Projects.jsx";
 import All_Projects_item from "./Components/Projects/All_Projects/Item.jsx";
 
@@ -20,7 +18,6 @@ import Feedbacks from "./Components/Feedbacks/Feedbacks.jsx";
 import Feedbacks_Clients from "./Components/Feedbacks/Clients_Freedbacks/Clients_Freedbacks.jsx";
 import Feedbacks_Freelancers from "./Components/Feedbacks/Freelancers_Feedbacks/Freelancers_Feedbacks.jsx";
 import Home_Feedbacks from "./Components/Feedbacks/Home_Feedbacks/Home_Feedbacks.jsx";
-import Messages from "./Components/Messages/Messages.jsx";
 
 import Terms from "./Components/Terms/Terms.jsx";
 
@@ -86,21 +83,13 @@ const routes = createBrowserRouter([
                 element: <Projects_Applications />,
                 errorElement: <ErrorElement />,
             },
-            {
-                path: "/Projects_Accepted",
-                element: <Projects_Accepted />,
-                errorElement: <ErrorElement />,
-            },
+            
             {
                 path: "/Projects_Paying",
                 element: <Projects_Paying />,
                 errorElement: <ErrorElement />,
             },
-            {
-                path: "/Projects_At_Work",
-                element: <Projects_At_Work />,
-                errorElement: <ErrorElement />,
-            },
+            
 
             {
                 path: "/Home_Feedbacks",
@@ -118,11 +107,7 @@ const routes = createBrowserRouter([
                 errorElement: <ErrorElement />,
             },
 
-            {
-                path: "/Messages",
-                element: <Messages />,
-                errorElement: <ErrorElement />,
-            },
+            
             {
                 path: "/Terms",
                 element: <Terms />,
