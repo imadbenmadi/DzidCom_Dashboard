@@ -6,7 +6,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
-import { BiMessage } from "react-icons/bi";
+import { FaRegHandshake } from "react-icons/fa6";
 
 function Requests() {
     const navigate = useNavigate();
@@ -83,7 +83,7 @@ function Requests() {
                                         {Projects.length}
                                     </div>
                                     <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
-                                        <BiMessage className=" shrink-0 text-2xl" />
+                                        <FaRegHandshake className=" shrink-0 text-2xl" />
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@ function Requests() {
                                                 }}
                                                 className="bg-blue-500 text-white px-4 py-2 rounded"
                                             >
-                                                View Project
+                                                View
                                             </button>
                                         </td>
                                     </tr>

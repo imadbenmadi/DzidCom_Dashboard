@@ -6,7 +6,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
-import { BiMessage } from "react-icons/bi";
+import { SiFreelancer } from "react-icons/si";
 
 function Applications() {
     const navigate = useNavigate();
@@ -83,7 +83,7 @@ function Applications() {
                                         {Projects.length}
                                     </div>
                                     <div className=" shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
-                                        <BiMessage className=" shrink-0 text-2xl" />
+                                        <SiFreelancer  className=" shrink-0 text-2xl" />
                                     </div>
                                 </div>
                             </div>
