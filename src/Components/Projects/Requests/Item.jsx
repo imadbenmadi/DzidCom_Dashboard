@@ -236,7 +236,7 @@ function Freelancer_Process_item() {
                             Accept Project
                         </div>
                     )}
-                    {AcceptLoading ? (
+                    {RejectLoading ? (
                         <div className=" small-loader mx-12"></div>
                     ) : (
                         <div
