@@ -6,15 +6,18 @@ import Default from "./Default";
 import Login from "./Components/Auth/Login/Login";
 
 import Users from "./Components/Users/Users";
-import Projects from "./Components/Projects/Projects.jsx";
 import Projects_Requests from "./Components/Projects/Requests/Requests.jsx";
+
 import Projects_Applications from "./Components/Projects/Applications/Applications.jsx";
+import Projects_Applications_item from "./Components/Projects/Applications/Item.jsx";
+
 import Projects_Paying from "./Components/Projects/Paying/Paying.jsx";
+import Projects_Paying_item from "./Components/Projects/Paying/item.jsx";
+
 import All_Projects from "./Components/Projects/All_Projects/All_Projects.jsx";
 import All_Projects_item from "./Components/Projects/All_Projects/Item.jsx";
 
 import Request_Project_Item from "./Components/Projects/Requests/Item.jsx";
-import Feedbacks from "./Components/Feedbacks/Feedbacks.jsx";
 import Feedbacks_Clients from "./Components/Feedbacks/Clients_Freedbacks/Clients_Freedbacks.jsx";
 import Feedbacks_Freelancers from "./Components/Feedbacks/Freelancers_Feedbacks/Freelancers_Feedbacks.jsx";
 import Home_Feedbacks from "./Components/Feedbacks/Home_Feedbacks/Home_Feedbacks.jsx";
@@ -83,13 +86,22 @@ const routes = createBrowserRouter([
                 element: <Projects_Applications />,
                 errorElement: <ErrorElement />,
             },
-            
+            {
+                path: "/Projects_Applications/:projectId",
+                element: <Projects_Applications_item />,
+                errorElement: <ErrorElement />,
+            },
+
             {
                 path: "/Projects_Paying",
                 element: <Projects_Paying />,
                 errorElement: <ErrorElement />,
             },
-            
+            {
+                path: "/Projects_Paying/:projectId",
+                element: <Projects_Paying_item />,
+                errorElement: <ErrorElement />,
+            },
 
             {
                 path: "/Home_Feedbacks",
@@ -107,7 +119,6 @@ const routes = createBrowserRouter([
                 errorElement: <ErrorElement />,
             },
 
-            
             {
                 path: "/Terms",
                 element: <Terms />,
