@@ -9,7 +9,7 @@ import Users from "./Components/Users/Users";
 import Projects_Requests from "./Components/Projects/Requests/Requests.jsx";
 
 import Projects_Applications from "./Components/Projects/Applications/Applications.jsx";
-import Projects_Applications_item from "./Components/Projects/Applications/Item.jsx";
+import Projects_Applications_Listof_Freelancers from "./Components/Projects/Applications/List.jsx";
 
 import Projects_Paying from "./Components/Projects/Paying/Paying.jsx";
 import Projects_Paying_item from "./Components/Projects/Paying/item.jsx";
@@ -88,7 +88,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/Projects_Applications/:projectId",
-                element: <Projects_Applications_item />,
+                element: <Projects_Applications_Listof_Freelancers />,
                 errorElement: <ErrorElement />,
             },
 
