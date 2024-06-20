@@ -10,7 +10,7 @@ import { useLocation } from "react-router";
 import { Editor, EditorState, convertFromRaw, ContentState } from "draft-js";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
-
+import List_Card from "./List_Card";
 function List() {
     const location = useLocation();
     const projectId = location.pathname.split("/")[2];
@@ -218,6 +218,21 @@ function List() {
                                     <FaAngleDown />
                                 </div>
                             )}
+                        </div>
+                        <div className=" py-12 md:mx-24">
+                            <div className=" pb-2 font-semibold text-gray_v">
+                                applicants
+                            </div>
+                            <div className="  flex justify-center gap-12 pt-6  flex-wrap ">
+                                {Applicants.map((applicant) => {
+                                    return (
+                                        <List_Card
+                                            user={applicant.Freelancer}
+                                            projectId={projectId}
+                                        />
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 )}
