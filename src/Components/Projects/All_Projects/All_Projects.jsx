@@ -227,7 +227,8 @@ function All_Projects() {
                                                         Accepted :
                                                     </span>{" "}
                                                     <span className=" text-red-500">
-                                                        waiting for the payment
+                                                        waiting client to pay
+                                                        the project fees
                                                     </span>
                                                 </div>
                                             ) : project?.isPayment_ScreenShot_uploaded &&
@@ -239,8 +240,8 @@ function All_Projects() {
                                                         Accepted :
                                                     </span>{" "}
                                                     <span className=" text-gray_v">
-                                                        Waiting Dashboard to
-                                                        accept the payment
+                                                        Waiting for payment
+                                                        Validation
                                                     </span>
                                                 </div>
                                             ) : project?.isPayment_ScreenShot_uploaded &&
@@ -307,7 +308,7 @@ function All_Projects() {
                                             <button
                                                 onClick={() => {
                                                     navigate(
-                                                        `/Projects_All_Projects/${project.id}`
+                                                        `/All_Projects/${project.id}`
                                                     );
                                                 }}
                                                 className="bg-blue-500 text-white px-4 py-2 rounded"
