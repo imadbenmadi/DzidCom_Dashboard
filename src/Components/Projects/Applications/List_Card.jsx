@@ -16,7 +16,7 @@ import { FaAngleUp } from "react-icons/fa";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
-function List_Card({ user, projectId }) {
+function List_Card({ user, projectId, application }) {
     const location = useLocation();
     const userId = location.pathname.split("/")[2];
     const navigate = useNavigate();
@@ -87,6 +87,21 @@ function List_Card({ user, projectId }) {
                 <div className=" text-md font-semibold text-gray_v pt-3 text-center">
                     {user?.JobTitle}
                 </div>
+                <div className=" pt-6">
+                    <div className=" text-sm font-semibold text-gray_v  ">
+                        Budget :{" "}
+                        {application?.Freelancer_Budget
+                            ? application?.Freelancer_Budget
+                            : "not set"}
+                    </div>
+                    <div className=" text-sm font-semibold text-gray_v ">
+                        Deadline :{" "}
+                        {application?.Freelancer_Time_Needed
+                            ? application?.Freelancer_Time_Needed
+                            : "not set"}
+                    </div>
+                </div>
+
                 <div
                     className=" w-full rounded-xl text-sm font-semibold text-center
                  cursor-pointer

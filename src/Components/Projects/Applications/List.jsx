@@ -19,7 +19,6 @@ function List() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
-
     const [Show_desc, setShow_desc] = useState(false);
     const Toogle_Show_desc = () => {
         setShow_desc(!Show_desc);
@@ -99,8 +98,7 @@ function List() {
                 <span className="loader"></span>
             </div>
         );
-    }
-    else if (error) {
+    } else if (error) {
         return (
             <div className="w-[80vw] h-screen flex items-center justify-center">
                 <div className="text-red-600 font-semibold">
@@ -229,6 +227,7 @@ function List() {
                                         <List_Card
                                             user={applicant.Freelancer}
                                             projectId={projectId}
+                                            application={applicant}
                                         />
                                     );
                                 })}
