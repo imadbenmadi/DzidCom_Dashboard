@@ -35,30 +35,6 @@ function Applications() {
                 if (response.status === 200) {
                     const projectsData = response.data.projects;
                     setProjects(projectsData);
-                    // if (Array.isArray(projectsData)) {
-                    //     const projectMap = {};
-
-                    //     projectsData.forEach((application) => {
-                    //         const project = application.Project;
-                    //         if (project) {
-                    //             if (!projectMap[project.id]) {
-                    //                 projectMap[project.id] = {
-                    //                     id: project.id,
-                    //                     title: project.Title,
-                    //                     companyName: project.owner.company_Name,
-                    //                     createdAt: project.createdAt,
-                    //                     applicationsCount: 0,
-                    //                 };
-                    //             }
-                    //             projectMap[project.id].applicationsCount += 1;
-                    //         }
-                    //     });
-
-                    //     const formattedProjects = Object.values(projectMap);
-                    //     setProjects(formattedProjects);
-                    // } else {
-                    //     console.error("Invalid data format: expected an array");
-                    // }
                 } else if (response.status === 401) {
                     Swal.fire("Error", "You should login again", "error");
                     navigate("/Login");
@@ -114,7 +90,11 @@ function Applications() {
                                                 project.applicationsCount,
                                             0
                                         )} */}
-                                        {projects.length}
+                                        {!projects
+                                            ? 0
+                                            : projects.length > 0
+                                            ? projects.length
+                                            : 0}
                                     </div>
                                     <div className="shrink-0 text-blue-600 border border-gray_white px-2 py-1 flex items-center justify-center rounded-lg shadow-lg">
                                         <SiFreelancer className="shrink-0 text-2xl" />
@@ -130,7 +110,7 @@ function Applications() {
                                         {projects.reduce(
                                             (total, project) =>
                                                 total +
-                                                project.applicationsCount,
+                                                project?.applicationsCount,
                                             0
                                         )}
                                         {/* {projects.length} */}
@@ -163,24 +143,24 @@ function Applications() {
                             </thead>
                             <tbody className="text-xs text-center font-semibold">
                                 {projects.map((project) => (
-                                    <tr key={project.id}>
+                                    <tr key={project?.id}>
                                         <td className="border px-4 py-2">
-                                            {project.title}
+                                            {project?.title}
                                         </td>
                                         <td className="border px-4 py-2">
-                                            {project.companyName}
+                                            {project?.companyName}
                                         </td>
                                         <td className="border px-4 py-2">
-                                            {project.applicationsCount}
+                                            {project?.applicationsCount}
                                         </td>
                                         <td className="border px-4 py-2">
-                                            {formatDate(project.createdAt)}
+                                            {formatDate(project?.createdAt)}
                                         </td>
                                         <td className="border px-4 py-2">
                                             <button
                                                 onClick={() => {
                                                     navigate(
-                                                        `/Projects_Applications/${project.id}`
+                                                        `/Projects_Applications/${project?.id}`
                                                     );
                                                 }}
                                                 className="bg-blue-500 text-white px-4 py-2 rounded"
