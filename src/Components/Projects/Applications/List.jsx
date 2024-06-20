@@ -62,15 +62,15 @@ function List() {
                     //     "data.Project.Description",
                     //     data.Project.Description
                     // );
-                    if (data.ProjectDescription) {
+                    if (data[0].ProjectDescription) {
                         // Ensure ProjectDescription is defined
-                        if (isDraftJSFormat(data.ProjectDescription)) {
+                        if (isDraftJSFormat(data[0].ProjectDescription)) {
                             contentState = convertFromRaw(
-                                JSON.parse(data.ProjectDescription)
+                                JSON.parse(data[0].ProjectDescription)
                             );
                         } else {
                             contentState = ContentState.createFromText(
-                                data.ProjectDescription
+                                data[0].ProjectDescription
                             );
                         }
                         setEditorState(
@@ -128,24 +128,24 @@ function List() {
                                 <div className=" flex gap-2 text-sm font-semibold">
                                     <div>Project Title : </div>
                                     <div className=" text-gray_v">
-                                        {Applicants?.Project?.Title}
+                                        {Applicants[0]?.Project?.Title}
                                     </div>
                                 </div>
                                 <div className="text-sm  mb-2 font-semibold text-white">
                                     <div className=" flex gap-2">
-                                        {Applicants?.Project
+                                        {Applicants[0]?.Project
                                             ?.Field_is_Graphic_design && (
                                             <div className="bg-perpol_v text-md rounded-lg py-1 mt-2 px-3 ">
                                                 Graphic Design
                                             </div>
                                         )}
-                                        {Applicants?.Project
+                                        {Applicants[0]?.Project
                                             ?.Field_is_Content_creation && (
                                             <div className="bg-perpol_v text-md rounded-lg py-1 mt-2 px-3 ">
                                                 Content creation
                                             </div>
                                         )}
-                                        {Applicants?.Project
+                                        {Applicants[0]?.Project
                                             ?.Field_is_SEO_SIM && (
                                             <div className="bg-perpol_v text-md rounded-lg py-1 mt-2 px-3 ">
                                                 SEO/SMM
@@ -153,13 +153,14 @@ function List() {
                                         )}
                                     </div>
                                 </div>
-                                {Applicants?.Project?.Frelancer_Experiance && (
+                                {Applicants[0]?.Project
+                                    ?.Frelancer_Experiance && (
                                     <div className="flex items-center justify-between w-full">
                                         <div className="text-sm pt-2 text-gray_v">
                                             requested frelancer experiance :{" "}
                                             <span className=" font-semibold">
                                                 {
-                                                    Applicants?.Project
+                                                    Applicants[0]?.Project
                                                         ?.Frelancer_Experiance
                                                 }
                                             </span>
@@ -169,13 +170,13 @@ function List() {
                                 <div className="flex items-center justify-between w-full pt-2 font-semibold">
                                     <div className="text-sm pt-1 text-gray_v">
                                         Expected Deadline :{" "}
-                                        {Applicants?.Project?.Expected_Time}
+                                        {Applicants[0]?.Project?.Expected_Time}
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between w-full  font-semibold">
                                     <div className="text-sm pt-1 text-gray_v">
                                         Client Bugdget :{" "}
-                                        {Applicants?.Project?.Client_Budget}
+                                        {Applicants[0]?.Project?.Client_Budget}
                                     </div>
                                 </div>{" "}
                                 <div className="flex items-center justify-between w-full font-semibold">
@@ -185,7 +186,7 @@ function List() {
                                         project?.createdAt
                                     ).toLocaleDateString()} */}
                                         {formatDate(
-                                            Applicants?.Project?.createdAt
+                                            Applicants[0]?.Project?.createdAt
                                         )}
                                         {/* const formattedDate = */}
                                         {/* ; */}
