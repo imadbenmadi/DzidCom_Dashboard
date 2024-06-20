@@ -215,7 +215,7 @@ function Freelancer_Process_item() {
         return (
             <div className=" w-full h-full relative py-6 px-4">
                 <div className="text-xl font-semibold  text-perpol_b pb-6">
-                    Dzidcom Projects Requests
+                    Projects Request
                 </div>
                 <div className=" flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
                     <div

@@ -18,8 +18,7 @@ function List() {
     const [Applicants, setApplicants] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [AcceptLoading, setAcceptLoading] = useState(false);
-    const [RejectLoading, setRejectLoading] = useState(false);
+
 
     const [Show_desc, setShow_desc] = useState(false);
     const Toogle_Show_desc = () => {
@@ -62,15 +61,15 @@ function List() {
                     //     "data.Project.Description",
                     //     data.Project.Description
                     // );
-                    if (data[0].ProjectDescription) {
+                    if (data && data[0]?.ProjectDescription) {
                         // Ensure ProjectDescription is defined
-                        if (isDraftJSFormat(data[0].ProjectDescription)) {
+                        if (isDraftJSFormat(data[0]?.ProjectDescription)) {
                             contentState = convertFromRaw(
-                                JSON.parse(data[0].ProjectDescription)
+                                JSON.parse(data[0]?.ProjectDescription)
                             );
                         } else {
                             contentState = ContentState.createFromText(
-                                data[0].ProjectDescription
+                                data[0]?.ProjectDescription
                             );
                         }
                         setEditorState(
@@ -100,7 +99,8 @@ function List() {
                 <span className="loader"></span>
             </div>
         );
-    } else if (error) {
+    }
+    else if (error) {
         return (
             <div className="w-[80vw] h-screen flex items-center justify-center">
                 <div className="text-red-600 font-semibold">
