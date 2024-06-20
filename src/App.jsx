@@ -15,13 +15,13 @@ function App() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3000/Admin_CheckAuth",
+                    "https://dzidcom-back.skate.dz/Admin_CheckAuth",
                     {
                         withCredentials: true,
                         // validateStatus: () => true,
                     }
                 );
-                
+
                 if (response.status == 200) {
                     set_Auth(true);
                     // Navigate("/Home");

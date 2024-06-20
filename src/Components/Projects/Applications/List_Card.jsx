@@ -46,7 +46,7 @@ function List_Card({ user, projectId, application }) {
                         {user?.profile_pic_link ? (
                             <img
                                 src={
-                                    "http://localhost:3000/" +
+                                    "https://dzidcom-back.skate.dz/" +
                                     user.profile_pic_link
                                 }
                                 onError={(e) => {

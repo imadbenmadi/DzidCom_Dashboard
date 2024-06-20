@@ -39,7 +39,7 @@ function Freelancer_Process_item() {
         setAcceptLoading(true);
         try {
             let response = await axios.post(
-                `http://localhost:3000/Admin/Projects/requests/${
+                `https://dzidcom-back.skate.dz/Admin/Projects/requests/${
                     location.pathname.split("/")[2]
                 }/Accept`,
                 {},
@@ -74,7 +74,7 @@ function Freelancer_Process_item() {
         setRejectLoading(true);
         try {
             let response = await axios.post(
-                `http://localhost:3000/Admin/Projects/requests/${
+                `https://dzidcom-back.skate.dz/Admin/Projects/requests/${
                     location.pathname.split("/")[2]
                 }/Reject`,
                 {},
@@ -111,7 +111,7 @@ function Freelancer_Process_item() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Projects/requests/${projectId}`,
+                    `https://dzidcom-back.skate.dz/Admin/Projects/requests/${projectId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
@@ -151,7 +151,6 @@ function Freelancer_Process_item() {
                 // setLoading(false);
             }
         };
-       
 
         FetchProject({ setProject, setLoading, setError }).then(() => {
             // fetchRejections({ SetRejections }).then(() => {

@@ -16,14 +16,13 @@ function Applications() {
     const formatDate = (dateString) => {
         return dayjs(dateString).format("DD MMMM YYYY");
     };
-   
 
     useEffect(() => {
         setLoading(true);
         const fetchProjects = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Applications`,
+                    `https://dzidcom-back.skate.dz/Admin/Applications`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

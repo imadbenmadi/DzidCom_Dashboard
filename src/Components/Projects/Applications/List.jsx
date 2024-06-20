@@ -36,13 +36,13 @@ function List() {
     const formatDate = (dateString) => {
         return dayjs(dateString).format("DD MMMM YYYY");
     };
-   
+
     useEffect(() => {
         setLoading(true);
         const fetchProject = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Applications/${projectId}`,
+                    `https://dzidcom-back.skate.dz/Admin/Applications/${projectId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
@@ -53,7 +53,7 @@ function List() {
 
                     setApplicants(data);
                     let contentState;
-                    
+
                     if (data && data[0]?.ProjectDescription) {
                         // Ensure ProjectDescription is defined
                         if (isDraftJSFormat(data[0]?.ProjectDescription)) {

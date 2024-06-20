@@ -22,7 +22,7 @@ function Clients_Freedbacks() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Feedbacks/Clients`,
+                    `https://dzidcom-back.skate.dz/Admin/Feedbacks/Clients`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

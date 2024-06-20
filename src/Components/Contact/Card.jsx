@@ -9,7 +9,6 @@ import { FiUser } from "react-icons/fi";
 import { MdOutlineMailOutline } from "react-icons/md";
 
 function Card({ Message, Messages, setMessages }) {
-    
     const [deleteLoading, setDeleteLoading] = useState(false);
     const [add_to_home_Loading, setadd_to_home_Loading] = useState(false);
     const [show_more, setShow_more] = useState(false);
@@ -20,7 +19,7 @@ function Card({ Message, Messages, setMessages }) {
         setDeleteLoading(true);
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Admin/Contact/${Message?.id}`,
+                `https://dzidcom-back.skate.dz/Admin/Contact/${Message?.id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

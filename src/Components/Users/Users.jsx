@@ -19,7 +19,7 @@ function Users() {
         const fetchUsers = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Users`,
+                    `https://dzidcom-back.skate.dz/Admin/Users`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

@@ -26,7 +26,7 @@ function Reviews({ user }) {
                 let response;
                 if ((user.userType = "client"))
                     response = await axios.get(
-                        `http://localhost:3000/Admin/Users/Clients/${user.id}/Feedbacks`,
+                        `https://dzidcom-back.skate.dz/Admin/Users/Clients/${user.id}/Feedbacks`,
                         {
                             withCredentials: true,
                             // validateStatus: () => true,
@@ -34,7 +34,7 @@ function Reviews({ user }) {
                     );
                 else if ((user.userType = "Freelancer"))
                     response = await axios.get(
-                        `http://localhost:3000/Admin/Users/Freelancer/${user.id}/Feedbacks`,
+                        `https://dzidcom-back.skate.dz/Admin/Users/Freelancer/${user.id}/Feedbacks`,
                         {
                             withCredentials: true,
                             // validateStatus: () => true,
@@ -44,7 +44,7 @@ function Reviews({ user }) {
                     setFeedbacks([]);
                     return;
                 }
-                
+
                 if (response.status == 200) {
                     setFeedbacks(response.data.Feedbacks);
                 } else {
@@ -226,7 +226,9 @@ function PersonalInformations({ user }) {
                             //     user.company_creationDate
                             // ).toLocaleDateString()
                             // formatDate(user?.company_creationDate)
-                            dayjs(user?.company_creationDate).format("DD  MMMM  YYYY")
+                            dayjs(user?.company_creationDate).format(
+                                "DD  MMMM  YYYY"
+                            )
                         ) : (
                             <div className="text-sm">none</div>
                         )}
@@ -307,7 +309,10 @@ function Hero({ user }) {
             <div className="  flex  justify-center max-w-[350px] gap-6 md:gap-12">
                 {user?.profile_pic_link ? (
                     <img
-                        src={"http://localhost:3000/" + user.profile_pic_link}
+                        src={
+                            "https://dzidcom-back.skate.dz/" +
+                            user.profile_pic_link
+                        }
                         onError={(e) => {
                             e.target.onerror = null;
                             e.target.src = user_default;
@@ -344,10 +349,8 @@ function Hero({ user }) {
                             </>
                         ) : null}
                     </div>
-                    
                 </div>
             </div>
-            
         </div>
     );
 }
@@ -370,7 +373,7 @@ function Feedback_Card({ feedback, Feedbacks, setFeedbacks }) {
                     <div className="text-lg font-semibold">
                         <img
                             src={
-                                "http://localhost:3000" +
+                                "https://dzidcom-back.skate.dz" +
                                 feedback?.Freelancer?.profile_pic_link
                             }
                             className=" w-20 h-20 rounded-full"
@@ -466,7 +469,7 @@ function Client_Profile() {
         const fetchUser = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Users/Freelancers/${userId}`,
+                    `https://dzidcom-back.skate.dz/Admin/Users/Freelancers/${userId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

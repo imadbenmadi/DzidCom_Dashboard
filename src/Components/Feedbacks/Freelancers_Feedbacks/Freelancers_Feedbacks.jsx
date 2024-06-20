@@ -11,7 +11,7 @@ function Freelancers_Feedbacks() {
     const [Feedbacks, setFeedbacks] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    
+
     useEffect(() => {
         setLoading(true);
         const FetchFeedbacks = async ({
@@ -22,7 +22,7 @@ function Freelancers_Feedbacks() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Feedbacks/Freelancers`,
+                    `https://dzidcom-back.skate.dz/Admin/Feedbacks/Freelancers`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

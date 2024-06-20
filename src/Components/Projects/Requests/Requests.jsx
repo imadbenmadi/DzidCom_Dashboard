@@ -23,7 +23,7 @@ function Requests() {
         const fetchProjects = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/Admin/Projects/requests`,
+                    `https://dzidcom-back.skate.dz/Admin/Projects/requests`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

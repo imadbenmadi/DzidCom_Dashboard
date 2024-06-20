@@ -16,7 +16,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
         setDeleteLoading(true);
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Admin/Feedbacks/Home_Feedbacks/${feedback?.id}`,
+                `https://dzidcom-back.skate.dz/Admin/Feedbacks/Home_Feedbacks/${feedback?.id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -57,7 +57,10 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                 <div className="flex gap-4 ">
                     <div className="text-lg font-semibold">
                         <img
-                            src={"http://localhost:3000" + feedback?.image_link}
+                            src={
+                                "https://dzidcom-back.skate.dz" +
+                                feedback?.image_link
+                            }
                             className=" w-20 h-20 rounded-full"
                             alt=""
                         />

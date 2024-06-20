@@ -28,7 +28,7 @@ function Terms({ initialContent }) {
 
         try {
             const response = await axios.put(
-                "http://localhost:3000/privacy",
+                "https://dzidcom-back.skate.dz/privacy",
                 {
                     Content: rawContent,
                 },
@@ -62,9 +62,8 @@ function Terms({ initialContent }) {
     const [currentFontSize, setCurrentFontSize] = useState(14);
     const [currentColor, setCurrentColor] = useState("BLACK");
 
-    
     useEffect(() => {
-        fetch("http://localhost:3000/privacy")
+        fetch("https://dzidcom-back.skate.dz/privacy")
             .then((response) => response.json())
             .then((data) => {
                 try {

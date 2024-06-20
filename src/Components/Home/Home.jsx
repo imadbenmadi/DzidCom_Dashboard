@@ -58,7 +58,7 @@ function Home() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    "http://localhost:3000/Admin/Home",
+                    "https://dzidcom-back.skate.dz/Admin/Home",
                     {
                         withCredentials: true,
                     }
@@ -109,7 +109,7 @@ function Home() {
         const freelancersByDate = processData(data?.freelancers);
         const clientsByDate = processData(data?.clients);
         const projectsByDate = processData(data?.projects);
-        
+
         const allDates = Array.from(
             new Set([
                 ...Object.keys(freelancersByDate),
