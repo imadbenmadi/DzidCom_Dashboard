@@ -117,7 +117,6 @@ function Freelancer_Process_item() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response : ", response.data);
 
                 if (response.status == 200) {
                     const Project = response.data.project;

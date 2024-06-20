@@ -117,7 +117,6 @@ function Freelancer_Process_item() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response : ", response.data);
 
                 if (response.status == 200) {
                     const Project = response.data.project;
@@ -152,33 +151,7 @@ function Freelancer_Process_item() {
                 // setLoading(false);
             }
         };
-        // const fetchRejections = async ({ SetRejections }) => {
-        //     setLoading(true);
-        //     try {
-        //         const response = await axios.get(
-        //             `http://localhost:3000/Admin/Projects/requests/${projectId}/Rejections`,
-        //             {
-        //                 withCredentials: true,
-        //                 validateStatus: () => true,
-        //             }
-        //         );
-        //         console.log("response : ", response.data);
-        //         if (response.status == 200) {
-        //             const rejections = response.data.Rejections;
-        //             SetRejections(rejections);
-        //         } else if (response.status == 401) {
-        //             SetRejections([]);
-        //             Swal.fire("Error", "you should login again", "error");
-        //             Naviagte("/Login");
-        //         } else {
-        //             SetRejections([]);
-        //         }
-        //     } catch (error) {
-        //         SetRejections([]);
-        //     } finally {
-        //         // setLoading(false);
-        //     }
-        // };
+       
 
         FetchProject({ setProject, setLoading, setError }).then(() => {
             // fetchRejections({ SetRejections }).then(() => {

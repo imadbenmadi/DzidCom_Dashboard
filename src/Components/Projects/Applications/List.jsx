@@ -36,9 +36,7 @@ function List() {
     const formatDate = (dateString) => {
         return dayjs(dateString).format("DD MMMM YYYY");
     };
-    useEffect(() => {
-        console.log("Applicants", Applicants);
-    }, [Applicants]);
+   
     useEffect(() => {
         setLoading(true);
         const fetchProject = async () => {
@@ -50,16 +48,12 @@ function List() {
                         validateStatus: () => true,
                     }
                 );
-                // console.log("response from get applicants: ", response.data);
                 if (response.status === 200) {
                     const data = response.data.Applications;
 
                     setApplicants(data);
                     let contentState;
-                    // console.log(
-                    //     "data.Project.Description",
-                    //     data.Project.Description
-                    // );
+                    
                     if (data && data[0]?.ProjectDescription) {
                         // Ensure ProjectDescription is defined
                         if (isDraftJSFormat(data[0]?.ProjectDescription)) {

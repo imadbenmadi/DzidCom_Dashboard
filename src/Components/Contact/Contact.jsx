@@ -16,7 +16,6 @@ function Contact() {
         setLoading(true);
         const FetchMessages = async ({ setMessages, setLoading, setError }) => {
             setLoading(true);
-            console.log("start loading");
             try {
                 const response = await axios.get(
                     `http://localhost:3000/Admin/Contact`,
@@ -25,7 +24,6 @@ function Contact() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response from get messages : ", response.data);
                 if (response.status == 200) {
                     const Messages = response.data.Messages;
                     setMessages(Messages);

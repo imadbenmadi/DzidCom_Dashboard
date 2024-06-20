@@ -16,9 +16,7 @@ function Applications() {
     const formatDate = (dateString) => {
         return dayjs(dateString).format("DD MMMM YYYY");
     };
-    useEffect(() => {
-        console.log("projects", projects);
-    }, [projects]);
+   
 
     useEffect(() => {
         setLoading(true);
@@ -31,7 +29,6 @@ function Applications() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response from get applications: ", response.data);
                 if (response.status === 200) {
                     const projectsData = response.data.projects;
                     setProjects(projectsData);

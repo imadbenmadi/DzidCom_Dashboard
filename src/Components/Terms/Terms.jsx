@@ -37,7 +37,6 @@ function Terms({ initialContent }) {
                     validateStatus: () => true,
                 }
             );
-            console.log("response from Edite Privacy :", response.data);
             if (response.status == 200) {
                 Swal.fire("Done", `${response.data.message} `, "success");
             } else {
@@ -63,28 +62,7 @@ function Terms({ initialContent }) {
     const [currentFontSize, setCurrentFontSize] = useState(14);
     const [currentColor, setCurrentColor] = useState("BLACK");
 
-    // useEffect(() => {
-    //     fetch("http://localhost:3000/privacy")
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             try {
-    //                 if (data.Content) {
-    //                     // Convert plain text to Draft.js content state
-    //                     const contentState = ContentState.createFromText(
-    //                         data.Content
-    //                     );
-    //                     setEditorState(
-    //                         EditorState.createWithContent(contentState)
-    //                     );
-    //                 }
-    //             } catch (error) {
-    //                 console.error("Error parsing content:", error);
-    //             }
-    //         })
-    //         .catch((error) =>
-    //             console.error("Error fetching initial content:", error)
-    //         );
-    // }, []);
+    
     useEffect(() => {
         fetch("http://localhost:3000/privacy")
             .then((response) => response.json())

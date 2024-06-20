@@ -68,7 +68,6 @@ function Login() {
         // Promise.all([fetch_fonts(), fetch_images(), fetchData()]);
         Promise.all([fetch_fonts(), fetch_images()])
             .then(() => {
-                console.log("Done");
                 setLoading(false);
             })
             .catch(() => {

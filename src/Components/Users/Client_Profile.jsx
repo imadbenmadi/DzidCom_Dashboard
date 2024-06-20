@@ -20,7 +20,6 @@ function Reviews({ user }) {
     const [Loading, setLoading] = useState(false);
     const [Feedbacks, setFeedbacks] = useState([]);
     useEffect(() => {
-        console.log("start loading");
         setLoading(true);
         const fetchData = async () => {
             try {
@@ -45,10 +44,7 @@ function Reviews({ user }) {
                     setFeedbacks([]);
                     return;
                 }
-                console.log(
-                    "response from get Feedbacks",
-                    response.data.Feedbacks
-                );
+                
                 if (response.status == 200) {
                     setFeedbacks(response.data.Feedbacks);
                 } else {
@@ -476,7 +472,6 @@ function Client_Profile() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response from get User : ", response.data);
                 if (response.status === 200) {
                     setUser(response.data.user);
                 } else if (response.status === 401) {

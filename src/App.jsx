@@ -21,10 +21,7 @@ function App() {
                         // validateStatus: () => true,
                     }
                 );
-                console.log(
-                    "response from app.jsx check_auth :",
-                    response.data
-                );
+                
                 if (response.status == 200) {
                     set_Auth(true);
                     // Navigate("/Home");
@@ -33,7 +30,6 @@ function App() {
                     Navigate("/Login");
                 }
             } catch (error) {
-                // console.log("error from app.jsx check_auth :", error);
                 set_Auth(false);
                 Navigate("/Login");
             }
@@ -95,7 +91,6 @@ function App() {
         // Promise.all([fetchData()]);
         Promise.all([fetch_fonts(), fetch_images(), fetchData()])
             .then(() => {
-                console.log("Done");
                 setLoading(false);
             })
             .catch(() => {

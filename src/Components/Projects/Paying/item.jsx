@@ -33,7 +33,6 @@ function Payment() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response from get Payment: ", response.data);
                 if (response.status === 200) {
                     const projectsData = response.data.project;
                     setProject(projectsData);

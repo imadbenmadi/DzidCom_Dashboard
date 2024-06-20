@@ -37,7 +37,6 @@ function Laptop() {
                     validateStatus: () => true,
                 }
             );
-            console.log("response from Logout : ", response);
             if (response.status == 204) {
                 set_Auth(false);
                 Swal.fire("Success!", `Logged Out Successfully`, "success");

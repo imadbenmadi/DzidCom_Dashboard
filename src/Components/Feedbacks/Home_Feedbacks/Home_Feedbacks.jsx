@@ -28,7 +28,6 @@ function Home_Feedbacks() {
                         validateStatus: () => true,
                     }
                 );
-                console.log(response.data);
                 if (response.status == 200) {
                     const Feedbacks = response.data;
                     setFeedbacks(Feedbacks);

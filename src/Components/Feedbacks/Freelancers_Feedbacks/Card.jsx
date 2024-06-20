@@ -41,7 +41,6 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                 Navigate("/Login");
             } else Swal.fire("Error", "Somthing went wrong", "error");
         } catch (err) {
-            console.log(err);
             Swal.fire("Error", "Somthing went wrong", "error");
         } finally {
             setDeleteLoading(false);
@@ -73,7 +72,6 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                 Navigate("/Login");
             } else Swal.fire("Error", `${response.data.message}`, "error");
         } catch (err) {
-            console.log(err);
             Swal.fire("Error", "Somthing went wrong", "error");
         } finally {
             setadd_to_home_Loading(false);

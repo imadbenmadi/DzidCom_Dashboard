@@ -28,7 +28,6 @@ function All_Projects() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response from get Projects : ", response.data);
                 if (response.status === 200) {
                     setProjects(response.data.Projects);
                 } else if (response.status === 401) {

@@ -9,9 +9,7 @@ import { FiUser } from "react-icons/fi";
 import { MdOutlineMailOutline } from "react-icons/md";
 
 function Card({ Message, Messages, setMessages }) {
-    useEffect(() => {
-        console.log("Message from card", Message);
-    }, []);
+    
     const [deleteLoading, setDeleteLoading] = useState(false);
     const [add_to_home_Loading, setadd_to_home_Loading] = useState(false);
     const [show_more, setShow_more] = useState(false);
@@ -43,7 +41,6 @@ function Card({ Message, Messages, setMessages }) {
                 Navigate("/Login");
             } else Swal.fire("Error", "Somthing went wrong", "error");
         } catch (err) {
-            console.log(err);
             Swal.fire("Error", "Somthing went wrong", "error");
         } finally {
             setDeleteLoading(false);

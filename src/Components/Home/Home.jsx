@@ -63,7 +63,6 @@ function Home() {
                         withCredentials: true,
                     }
                 );
-                console.log("response from get home page :", response.data);
                 if (response.status === 200) {
                     setData(response.data);
                 } else {
@@ -110,10 +109,7 @@ function Home() {
         const freelancersByDate = processData(data?.freelancers);
         const clientsByDate = processData(data?.clients);
         const projectsByDate = processData(data?.projects);
-        // console.log("freelancersByDate", freelancersByDate);
-        // console.log("clientsByDate", clientsByDate);
-        // console.log("projectsByDate", projectsByDate);
-        // Combine dates
+        
         const allDates = Array.from(
             new Set([
                 ...Object.keys(freelancersByDate),
@@ -128,7 +124,6 @@ function Home() {
         );
         const clientsData = allDates.map((date) => clientsByDate[date] || 0);
         const projectsData = allDates.map((date) => projectsByDate[date] || 0);
-        // console.log(projectsData);
         const chart_data = {
             labels: allDates,
             datasets: [
