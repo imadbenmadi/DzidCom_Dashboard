@@ -16,7 +16,7 @@ function Not_Finished() {
         <img
           src={Not_Finished_img}
           alt="Under Construction"
-          className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
+          className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8 object-cover"
         />
         <p className="text-sm ">Thank you for your patience!</p>
       </div>

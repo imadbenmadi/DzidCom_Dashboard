@@ -54,10 +54,14 @@ function List_Card({ user, projectId, application }) {
                                     e.target.src = user_default;
                                 }}
                                 alt=""
-                                className=" w-[100px]  object-cover rounded-full"
+                                className=" w-[100px]  object-cover rounded-full "
                             />
                         ) : (
-                            <img src={user_default} alt="" className=" w-16" />
+                            <img
+                                src={user_default}
+                                alt=""
+                                className=" w-16  object-cover"
+                            />
                         )}
                         <div className=" flex items-center justify-center flex-col mb-6">
                             <div className=" text-sm font-semibold mb-4 text-gray_v">

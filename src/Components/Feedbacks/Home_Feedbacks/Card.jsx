@@ -61,7 +61,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                                 "https://dzidcom-back.skate.dz" +
                                 feedback?.image_link
                             }
-                            className=" w-20 h-20 rounded-full"
+                            className=" w-20 h-20 rounded-full  object-cover"
                             alt=""
                         />
                         {}

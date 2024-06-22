@@ -50,7 +50,11 @@ function Freelancer_Process_item() {
                 }
             );
             if (response.status == 200) {
-                Swal.fire("Success", "Work Accepteed Successfully", "success");
+                Swal.fire(
+                    "Success",
+                    "Project Request Accepteed Successfully",
+                    "success"
+                );
                 Navigate("/Projects_Requests");
             } else if (response.status == 401) window.location.href = "Login";
             else {
@@ -85,7 +89,11 @@ function Freelancer_Process_item() {
                 }
             );
             if (response.status == 200) {
-                Swal.fire("Success", "Work Rejected Successfully", "success");
+                Swal.fire(
+                    "Success",
+                    "Project Request Rejected Successfully",
+                    "success"
+                );
                 Navigate("/Projects_Requests");
             } else if (response.status == 401) window.location.href = "Login";
             else {

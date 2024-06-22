@@ -66,7 +66,11 @@ function Payment() {
                 }
             );
             if (response.status == 200) {
-                Swal.fire("Success", "Work Accepteed Successfully", "success");
+                Swal.fire(
+                    "Success",
+                    "Payment Accepteed Successfully",
+                    "success"
+                );
                 Navigate("/Projects_Paying");
             } else if (response.status == 401) window.location.href = "Login";
             else {
@@ -101,7 +105,11 @@ function Payment() {
                 }
             );
             if (response.status == 200) {
-                Swal.fire("Success", "Work Rejected Successfully", "success");
+                Swal.fire(
+                    "Success",
+                    "Payment Rejected Successfully",
+                    "success"
+                );
                 Navigate("/Projects_Paying");
             } else if (response.status == 401) window.location.href = "Login";
             else {
@@ -227,7 +235,7 @@ function Payment() {
                                     project?.Pyament_ScreenShot_Link
                                 }
                                 alt="Payment screen shot"
-                                className=" w-[300px] h-[300px] object-cover rounded-lg"
+                                className=" w-[300px] h-[300px] object-cover rounded-lg  "
                             />
                         </a>
                     </div>

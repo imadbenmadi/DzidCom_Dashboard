@@ -388,9 +388,7 @@ function Hero({ user }) {
         </div>
     );
 }
-function Feedback_Card({ feedback, Feedbacks, setFeedbacks }) {
-    const [deleteLoading, setDeleteLoading] = useState(false);
-    const [add_to_home_Loading, setadd_to_home_Loading] = useState(false);
+function Feedback_Card({ feedback }) {
     const [show_more, setShow_more] = useState(false);
     const Toogle_Show_More = () => {
         setShow_more(!show_more);
@@ -410,7 +408,7 @@ function Feedback_Card({ feedback, Feedbacks, setFeedbacks }) {
                                 "https://dzidcom-back.skate.dz" +
                                 feedback?.Client?.profile_pic_link
                             }
-                            className=" w-20 h-20 rounded-full"
+                            className=" w-20 h-20 rounded-full object-cover"
                             alt=""
                         />
                         {}
@@ -509,6 +507,7 @@ function Freelancer_Profile() {
                         validateStatus: () => true,
                     }
                 );
+                console.log(response.data);
                 if (response.status === 200) {
                     setUser(response.data.user);
                 } else if (response.status === 401) {
