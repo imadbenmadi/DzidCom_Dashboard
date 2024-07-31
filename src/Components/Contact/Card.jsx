@@ -19,7 +19,7 @@ function Card({ Message, Messages, setMessages }) {
         setDeleteLoading(true);
         try {
             const response = await axios.delete(
-                `https://dzidcom-back.skate.dz/Admin/Contact/${Message?.id}`,
+                `http://localhost:3000/Admin/Contact/${Message?.id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

@@ -23,7 +23,7 @@ function Applications() {
         const fetchProjects = async () => {
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Payment`,
+                    `http://localhost:3000/Admin/Payment`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

@@ -3,7 +3,7 @@ import Axios from "axios";
 async function handleLogin(values, { setSubmitting }) {
     try {
         let response = await Axios.post(
-            "https://dzidcom-back.skate.dz/Admin_Login",
+            "http://localhost:3000/Admin_Login",
             values,
             {
                 withCredentials: true,

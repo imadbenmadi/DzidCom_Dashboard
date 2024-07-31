@@ -22,7 +22,7 @@ function Freelancers_Feedbacks() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Feedbacks/Freelancers`,
+                    `http://localhost:3000/Admin/Feedbacks/Freelancers`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

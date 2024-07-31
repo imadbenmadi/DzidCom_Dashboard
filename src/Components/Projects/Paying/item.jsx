@@ -27,7 +27,7 @@ function Payment() {
         const fetchProjects = async () => {
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Payment/${projectId}`,
+                    `http://localhost:3000/Admin/Payment/${projectId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
@@ -55,7 +55,7 @@ function Payment() {
         setAcceptLoading(true);
         try {
             let response = await axios.post(
-                `https://dzidcom-back.skate.dz/Admin/Payment/${
+                `http://localhost:3000/Admin/Payment/${
                     location.pathname.split("/")[2]
                 }/Accept`,
                 {},
@@ -94,7 +94,7 @@ function Payment() {
         setRejectLoading(true);
         try {
             let response = await axios.post(
-                `https://dzidcom-back.skate.dz/Admin/Payment/${
+                `http://localhost:3000/Admin/Payment/${
                     location.pathname.split("/")[2]
                 }/Reject`,
                 {},
@@ -224,14 +224,14 @@ function Payment() {
                     <div className=" flex justify-center w-full">
                         <a
                             href={
-                                "https://dzidcom-back.skate.dz" +
+                                "http://localhost:3000" +
                                 project?.Pyament_ScreenShot_Link
                             }
                             target="_blank"
                         >
                             <img
                                 src={
-                                    "https://dzidcom-back.skate.dz" +
+                                    "http://localhost:3000" +
                                     project?.Pyament_ScreenShot_Link
                                 }
                                 alt="Payment screen shot"

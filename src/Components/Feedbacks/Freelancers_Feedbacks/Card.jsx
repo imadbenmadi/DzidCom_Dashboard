@@ -16,7 +16,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
         setDeleteLoading(true);
         try {
             const response = await axios.delete(
-                `https://dzidcom-back.skate.dz/Admin/Feedbacks/Freelancers/${feedback?.id}`,
+                `http://localhost:3000/Admin/Feedbacks/Freelancers/${feedback?.id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -50,7 +50,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
         setadd_to_home_Loading(true);
         try {
             const response = await axios.post(
-                `https://dzidcom-back.skate.dz/Admin/Feedbacks/Home_Feedbacks/Freelancer/${feedback?.id}`,
+                `http://localhost:3000/Admin/Feedbacks/Home_Feedbacks/Freelancer/${feedback?.id}`,
                 {},
                 {
                     withCredentials: true,
@@ -93,7 +93,7 @@ function Card({ feedback, Feedbacks, setFeedbacks }) {
                     <div className="text-lg font-semibold">
                         <img
                             src={
-                                "https://dzidcom-back.skate.dz" +
+                                "http://localhost:3000" +
                                 feedback?.Freelancer?.profile_pic_link
                             }
                             className=" w-20 h-20 rounded-full  object-cover"

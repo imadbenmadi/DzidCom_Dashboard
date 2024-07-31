@@ -41,7 +41,7 @@ function Freelancer_Process_item() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Projects/requests/${projectId}`,
+                    `http://localhost:3000/Admin/Projects/requests/${projectId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

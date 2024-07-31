@@ -42,7 +42,7 @@ function List() {
         const fetchProject = async () => {
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Applications/${projectId}`,
+                    `http://localhost:3000/Admin/Applications/${projectId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

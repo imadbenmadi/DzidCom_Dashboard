@@ -22,7 +22,7 @@ function Applications() {
         const fetchProjects = async () => {
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Applications`,
+                    `http://localhost:3000/Admin/Applications`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

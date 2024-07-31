@@ -26,7 +26,7 @@ function Reviews({ user }) {
                 let response;
                 if ((user.userType = "client"))
                     response = await axios.get(
-                        `https://dzidcom-back.skate.dz/Admin/Users/Clients/${user.id}/Feedbacks`,
+                        `http://localhost:3000/Admin/Users/Clients/${user.id}/Feedbacks`,
                         {
                             withCredentials: true,
                             // validateStatus: () => true,
@@ -34,7 +34,7 @@ function Reviews({ user }) {
                     );
                 else if ((user.userType = "Freelancer"))
                     response = await axios.get(
-                        `https://dzidcom-back.skate.dz/Admin/Users/Freelancer/${user.id}/Feedbacks`,
+                        `http://localhost:3000/Admin/Users/Freelancer/${user.id}/Feedbacks`,
                         {
                             withCredentials: true,
                             // validateStatus: () => true,
@@ -309,10 +309,7 @@ function Hero({ user }) {
             <div className="  flex  justify-center max-w-[350px] gap-6 md:gap-12">
                 {user?.profile_pic_link ? (
                     <img
-                        src={
-                            "https://dzidcom-back.skate.dz/" +
-                            user.profile_pic_link
-                        }
+                        src={"http://localhost:3000/" + user.profile_pic_link}
                         onError={(e) => {
                             e.target.onerror = null;
                             e.target.src = user_default;
@@ -377,7 +374,7 @@ function Feedback_Card({ feedback, Feedbacks, setFeedbacks }) {
                     <div className="text-lg font-semibold">
                         <img
                             src={
-                                "https://dzidcom-back.skate.dz" +
+                                "http://localhost:3000" +
                                 feedback?.Freelancer?.profile_pic_link
                             }
                             className=" w-20 h-20 rounded-full object-cover"
@@ -473,7 +470,7 @@ function Client_Profile() {
         const fetchUser = async () => {
             try {
                 const response = await axios.get(
-                    `https://dzidcom-back.skate.dz/Admin/Users/Freelancers/${userId}`,
+                    `http://localhost:3000/Admin/Users/Freelancers/${userId}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

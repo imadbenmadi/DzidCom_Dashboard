@@ -30,7 +30,7 @@ function Laptop() {
         try {
             // Send a request to the logout endpoint on the server
             const response = await axios.post(
-                "https://dzidcom-back.skate.dz/logout",
+                "http://localhost:3000/logout",
                 {},
                 {
                     withCredentials: true,
